@@ -1,4 +1,4 @@
 package oop.firebrigadeoperationsapp;
 
-public class Dashboard {
+public class LoginPageController {
 }

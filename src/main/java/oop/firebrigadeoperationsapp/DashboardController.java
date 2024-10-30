@@ -1,4 +1,4 @@
 package oop.firebrigadeoperationsapp;
 
-public class SignupPage {
+public class DashboardController {
 }
