@@ -2,18 +2,27 @@ package oop.firebrigadeoperationsapp;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
 public class LoginPageController {
 
     @FXML
-    private Button loginbutton;
+    private TextField UsernameTextfield;
 
     @FXML
-    private Button signupbutton;
+    private Label messageLabel;
+
+    @FXML
+    private TextField passwordTextfield;
+
 
     @FXML
     void OnSignUpButtonClick(ActionEvent event) {
+        String username = UsernameTextfield.getText();
+        if( username.isBlank()){
+            messageLabel.setText("Please enter username");
+        }
 
     }
 
