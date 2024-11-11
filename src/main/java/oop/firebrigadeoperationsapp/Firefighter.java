@@ -1,5 +1,5 @@
 package oop.firebrigadeoperationsapp;
 
-public class Firefighter extends EmployeeParent {
+public class Firefighter extends Employee {
 
 }

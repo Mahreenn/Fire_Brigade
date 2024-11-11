@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.RecieveAlertfromExternalUserController">
+   <children>
+      <DatePicker fx:id="incidentdatdp" layoutX="127.0" layoutY="49.0" prefHeight="33.0" prefWidth="174.0" />
+      <ComboBox fx:id="locationCombobox" layoutX="128.0" layoutY="132.0" prefHeight="26.0" prefWidth="174.0" />
+      <Label layoutX="84.0" layoutY="50.0" prefHeight="34.0" prefWidth="34.0" text="date" />
+      <Label layoutX="61.0" layoutY="132.0" prefHeight="26.0" prefWidth="59.0" text="Location:" />
+      <TextField fx:id="descriptionTf" layoutX="97.0" layoutY="240.0" prefHeight="88.0" prefWidth="210.0" />
+      <Label layoutX="21.0" layoutY="247.0" prefHeight="74.0" prefWidth="67.0" text="Small description of event" textAlignment="CENTER" wrapText="true" />
+      <Label layoutX="371.0" layoutY="60.0" prefHeight="34.0" prefWidth="42.0" text="time:" />
+      <Label fx:id="messageLabel" layoutX="347.0" layoutY="257.0" prefHeight="74.0" prefWidth="204.0" textAlignment="CENTER" wrapText="true" />
+      <TextField fx:id="incidenttimetf" layoutX="403.0" layoutY="62.0" prefHeight="26.0" prefWidth="111.0" />
+      <ComboBox fx:id="areaTypeCombobox" layoutX="392.0" layoutY="145.0" prefHeight="26.0" prefWidth="129.0" />
+      <Label layoutX="332.0" layoutY="145.0" prefHeight="26.0" prefWidth="59.0" text="Area Type:" />
+      <Button layoutX="248.0" layoutY="350.0" mnemonicParsing="false" onAction="#OnsubmitAlertButtonClick" text="submit alert" />
+   </children>
+</AnchorPane>
