@@ -15,18 +15,6 @@ import java.io.IOException;
 
 
 public class forensic_DashboardController {
-    @FXML
-    private TextField IncidentLocationField;
-    @FXML
-    private TextField IncidentNamefield;
-    @FXML
-    private TextField IncidentNoField;
-    @FXML
-    private DatePicker IncidentDate;
-    @FXML
-    private Label massageLabel;
-    @FXML
-    private TextArea descriptionField;
 
     @FXML
     public void initialize() {
@@ -51,6 +39,10 @@ public class forensic_DashboardController {
         stage.setScene(scene);
     }
 
+
+
+    //    forensic_Dashboard Fxml Button
+
     @FXML
     public void OnProfileButtonClick(ActionEvent event) throws IOException {
         FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
@@ -60,8 +52,10 @@ public class forensic_DashboardController {
         stage.setScene(scene);
     }
 
+
+     // forensic_Dashboard Fxml Button
     @FXML
-    public void OnPriviousIncidentButtonClick(ActionEvent event) throws IOException {
+    public void OnPreviousIncidentButtonClick(ActionEvent event) throws IOException {
         FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("PreviousIncident.fxml"));
         Parent root = FxmlLoader.load();
         Scene scene = new Scene(root);
@@ -71,12 +65,23 @@ public class forensic_DashboardController {
 
     }
 
+
+
+//    for downloading pdf in previous Incident Fxml
     @FXML
     public void OnDownloadButtonClick(ActionEvent Event) {
     }
 
 
+
+    //for submitting report in Forensic report submit FXML
     @FXML
     public void OnReportSubmitButtonClick(ActionEvent event) {
+    }
+
+
+    // forensic_Dashboard Fxml Button
+    @FXML
+    public void OnReportSubmissionButtonClick(ActionEvent actionEvent) {
     }
 }
