@@ -1,17 +1,22 @@
 package oop.firebrigadeoperationsapp;
 
+import java.time.LocalDate;
+
+import static java.time.temporal.ChronoUnit.YEARS;
+
 public class Employee {
-    private String ID, name, contact,username,password;
+    private String ID, contact,username,password;
+    LocalDate dob;
 
     public Employee() {
     }
 
-    public Employee(String ID, String name, String contact, String username, String password) {
+    public Employee(String ID, String contact, String username, String password, LocalDate dob) {
         this.ID = ID;
-        this.name = name;
         this.contact = contact;
         this.username = username;
         this.password = password;
+        this.dob = dob;
     }
 
     public String getID() {
@@ -22,26 +27,26 @@ public class Employee {
         this.ID = ID;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getContact() {
         return contact;
+    }
+
+    public LocalDate getDob() {
+        return dob;
+    }
+
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
     }
 
     @Override
     public String toString() {
         return "Employee{" +
                 "ID='" + ID + '\'' +
-                ", name='" + name + '\'' +
                 ", contact='" + contact + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", dob=" + dob +
                 '}';
     }
 
@@ -64,4 +69,8 @@ public class Employee {
     public void setContact(String contact) {
         this.contact = contact;
     }
+    public int getAge() {
+        return (int) this.dob.until(LocalDate.now(),YEARS);
+    }
+
 }
