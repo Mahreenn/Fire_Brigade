@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.DispatcherDashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Dispatcher.DispatcherDashboardController">
    <children>
       <Button layoutX="502.0" layoutY="336.0" mnemonicParsing="false" onAction="#onLogoutButtonClick" prefHeight="52.0" prefWidth="78.0" text="Logout" />
       <Button layoutX="199.0" layoutY="54.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="174.0" text="Make a Training schedule" />
