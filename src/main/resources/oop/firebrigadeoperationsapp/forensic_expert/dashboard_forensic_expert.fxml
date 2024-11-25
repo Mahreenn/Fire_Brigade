@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.forensic_DashboardController">
+   <children>
+      <Label layoutX="24.0" layoutY="14.0" prefHeight="60.0" prefWidth="408.0" text="welcome to forensic expert dashboard" textFill="#c3ad9c" AnchorPane.leftAnchor="24.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Button layoutX="527.0" layoutY="19.0" mnemonicParsing="false" onAction="#LogOutButtonClick" style="-fx-background-color: #cc3333;" text="Log Out" textFill="#e4e3cd" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="19.0" />
+      <Button layoutX="35.0" layoutY="100.0" mnemonicParsing="false" onAction="#OnProfileButtonClick" prefHeight="66.0" prefWidth="175.0" text="Profile" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="100.0" />
+      <Button layoutX="35.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnPreviousIncidentButtonClick" prefHeight="66.0" prefWidth="175.0" text="Preavious incident" />
+      <Button layoutX="35.0" layoutY="289.0" mnemonicParsing="false" onAction="#OnReportSubmissionButtonClick" prefHeight="66.0" prefWidth="175.0" text="Report submittion " AnchorPane.bottomAnchor="45.0" />
+   </children>
+</AnchorPane>
