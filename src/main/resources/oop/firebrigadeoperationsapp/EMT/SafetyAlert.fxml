@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.EMT.SafetyAlert">
+   <children>
+      <AnchorPane layoutX="-13.0" layoutY="-1.0" prefHeight="400.0" prefWidth="614.0">
+         <children>
+            <Button layoutX="501.0" layoutY="14.0" mnemonicParsing="false" text="Fire Incident" />
+            <ComboBox layoutX="124.0" layoutY="76.0" prefWidth="150.0" promptText="Active fire" />
+            <Button layoutX="163.0" layoutY="126.0" mnemonicParsing="false" text="Send Team" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

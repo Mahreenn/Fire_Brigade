@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.EMT.ParticipateInEvents">
+   <children>
+      <AnchorPane prefHeight="412.0" prefWidth="626.0">
+         <children>
+            <AnchorPane layoutX="-1.0" layoutY="-15.0" prefHeight="422.0" prefWidth="633.0">
+               <children>
+                  <Button layoutX="441.0" layoutY="28.0" mnemonicParsing="false" text="EMT event participation" />
+                  <ComboBox layoutX="106.0" layoutY="79.0" prefWidth="150.0" promptText="Attend Briefing Sessions" />
+                  <Label layoutX="131.0" layoutY="45.0" text="Event names" />
+                  <Button layoutX="271.0" layoutY="78.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="38.0" text="Join" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

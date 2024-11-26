@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.EMT.PatientTransport">
+   <children>
+      <AnchorPane layoutY="-2.0" prefHeight="407.0" prefWidth="604.0">
+         <children>
+            <Button layoutX="468.0" layoutY="26.0" mnemonicParsing="false" text="Patient Transport" />
+            <ComboBox layoutX="123.0" layoutY="85.0" prefWidth="150.0" promptText="Ambulance for patient" />
+            <Button layoutX="153.0" layoutY="128.0" mnemonicParsing="false" text="Contact Hospital" />
+            <Label layoutX="121.0" layoutY="172.0" text="Contact Number : 01701591880" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

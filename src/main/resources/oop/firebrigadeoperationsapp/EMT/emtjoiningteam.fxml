@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.EMT.Emtjoiningteam">
+   <children>
+      <AnchorPane layoutY="-8.0" prefHeight="575.0" prefWidth="740.0">
+         <children>
+            <Button layoutX="536.0" layoutY="25.0" mnemonicParsing="false" onAction="#emtteam" text="EMT team" />
+            <ComboBox layoutX="224.0" layoutY="71.0" onAction="#teamnamestextfield" prefWidth="150.0" promptText="Team Names" />
+            <Button layoutX="275.0" layoutY="137.0" mnemonicParsing="false" onAction="#jointeam" text="Join team" />
+            <Label fx:id="availableteamtextfield" layoutX="72.0" layoutY="75.0" text="Team member availablity" />
+            <Button layoutX="265.0" layoutY="192.0" mnemonicParsing="false" onAction="#seeallmember" text="See all members" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
