@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="324.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Firefighter.ProvideTraining">
+   <children>
+      <ComboBox layoutX="34.0" layoutY="62.0" prefHeight="42.0" prefWidth="192.0" />
+      <Label layoutX="246.0" layoutY="39.0" prefHeight="175.0" prefWidth="246.0" />
+      <TableView layoutY="199.0" prefHeight="143.0" prefWidth="363.0">
+        <columns>
+          <TableColumn prefWidth="123.99994051456451" text="Module" />
+          <TableColumn prefWidth="123.20000457763672" text="Time" />
+            <TableColumn prefWidth="123.20000457763672" text="Day" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>
