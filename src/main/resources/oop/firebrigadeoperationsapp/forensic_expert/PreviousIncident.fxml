@@ -7,22 +7,26 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.forensic_DashboardController">
    <children>
-      <TableView fx:id="tableview" layoutX="10.0" layoutY="56.0" prefHeight="297.0" prefWidth="580.0">
+      <TableView fx:id="tableview" layoutX="14.0" layoutY="108.0" prefHeight="245.0" prefWidth="580.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn prefWidth="75.0" text="no" />
+          <TableColumn prefWidth="134.0" text="Incident name" />
+            <TableColumn prefWidth="74.6666259765625" text="location" />
+            <TableColumn prefWidth="78.66668701171875" text="description" />
+            <TableColumn prefWidth="120.6666259765625" />
         </columns>
       </TableView>
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" />
-      <Label layoutX="200.0" layoutY="22.0" text="Previous Incedent" textAlignment="CENTER" underline="true">
+      <Label layoutX="115.0" layoutY="22.0" text="Previous Incedents and previous reports" textAlignment="CENTER" underline="true">
          <font>
             <Font size="23.0" />
          </font>
       </Label>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="Back" />
       <Button layoutX="522.0" layoutY="360.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="Download" />
+      <Button layoutX="14.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnLoadPreviousIncidentsButtonClick" text="load previous incidents" />
+      <Button layoutX="165.0" layoutY="63.0" mnemonicParsing="false" onAction="#OnLoadPreviousForensicReportButtonClick" text="load previous forencic report" />
    </children>
 </AnchorPane>

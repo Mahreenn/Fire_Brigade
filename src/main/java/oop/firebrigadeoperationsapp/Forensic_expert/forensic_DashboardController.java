@@ -17,6 +17,9 @@ import java.io.IOException;
 public class forensic_DashboardController {
 
     @FXML
+    private TableView tableview;
+
+    @FXML
     public void initialize() {
 //        tableview initialize
     }
@@ -83,5 +86,20 @@ public class forensic_DashboardController {
     // forensic_Dashboard Fxml Button
     @FXML
     public void OnReportSubmissionButtonClick(ActionEvent actionEvent) {
+    }
+
+
+
+
+    //for loading previous incident in the table view.
+    @FXML
+    public void OnLoadPreviousForensicReportButtonClick(ActionEvent actionEvent) {
+    }
+
+
+
+    //for loading previous forensic report that submitted by the forensic expert in the same table view.
+    @FXML
+    public void OnLoadPreviousIncidentsButtonClick(ActionEvent actionEvent) {
     }
 }

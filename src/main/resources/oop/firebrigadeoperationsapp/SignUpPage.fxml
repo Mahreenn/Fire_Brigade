@@ -40,7 +40,9 @@
             <Button mnemonicParsing="false" onAction="#OnSignUpButtonClick" prefHeight="34.0" prefWidth="128.0" text="Sign Up" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#BackToLoginPageButton" prefHeight="25.0" prefWidth="230.0" text="Already Have an account? Log in here." GridPane.rowIndex="6" />
             <Label fx:id="massageLabel" prefHeight="29.0" prefWidth="210.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <Label fx:id="massageLable" GridPane.columnIndex="1" GridPane.rowIndex="5" />
          </children>
       </GridPane>
+      <Button layoutX="8.0" layoutY="14.0" mnemonicParsing="false" onAction="#BackToLoginPageButton" text="Back" />
    </children>
 </AnchorPane>
