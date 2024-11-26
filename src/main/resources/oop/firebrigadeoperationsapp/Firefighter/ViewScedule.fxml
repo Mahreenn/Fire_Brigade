@@ -12,8 +12,9 @@
         <columns>
           <TableColumn prefWidth="110.4000244140625" text="Day" />
           <TableColumn prefWidth="102.4" text="Task" />
+            <TableColumn prefWidth="102.4" text="Task" />
         </columns>
       </TableView>
-      <Button layoutX="306.0" layoutY="108.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="190.0" text="Button" />
+      <Button layoutX="306.0" layoutY="108.0" mnemonicParsing="false" prefHeight="78.0" prefWidth="190.0" text="Pick Training Session" />
    </children>
 </AnchorPane>

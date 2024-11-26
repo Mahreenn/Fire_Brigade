@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Firefighter.RespondToAlert">
+   <children>
+      <TableView layoutX="15.0" layoutY="150.0" prefHeight="188.0" prefWidth="474.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Sent BY" />
+          <TableColumn prefWidth="75.0" text="Location" />
+            <TableColumn prefWidth="75.0" text="Time" />
+            <TableColumn prefWidth="75.0" text="AlertID" />
+        </columns>
+      </TableView>
+      <Button layoutX="27.0" layoutY="38.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="135.0" text="OTW" />
+      <TextField layoutX="239.0" layoutY="26.0" prefHeight="0.0" prefWidth="175.0" promptText="Choose Alert" />
+      <TextArea layoutX="214.0" layoutY="74.0" prefHeight="44.0" prefWidth="262.0" promptText="Show Estimated Time" />
+   </children>
+</AnchorPane>
