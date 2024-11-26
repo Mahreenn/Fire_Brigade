@@ -1,6 +1,7 @@
 package oop.firebrigadeoperationsapp.Dispatcher;
 
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
 public class DispatcherDashboardController {
 
