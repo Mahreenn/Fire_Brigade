@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.BattalionChief.BattalionChiefControllerClass">
+   <children>
+      <ChoiceBox fx:id="choiceId" layoutX="14.0" layoutY="36.0" prefWidth="150.0" />
+      <Button layoutX="26.0" layoutY="74.0" mnemonicParsing="false" onAction="#onEntertButton" text="Enter" />
+      <Button layoutX="16.0" layoutY="233.0" mnemonicParsing="false" onAction="#OnprogresssButton" prefHeight="25.0" prefWidth="141.0" text="Load Progress" />
+      <Button layoutX="16.0" layoutY="187.0" mnemonicParsing="false" onAction="#onAssignButton" prefHeight="25.0" prefWidth="141.0" text="Assign Operation" />
+      <Button layoutX="14.0" layoutY="272.0" mnemonicParsing="false" onAction="#OnEmergencyButton" prefHeight="25.0" prefWidth="141.0" text="Emergency" />
+      <Button layoutX="210.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnExitButton" prefHeight="25.0" prefWidth="127.0" text="Exit Order" />
+      <Button layoutX="210.0" layoutY="233.0" mnemonicParsing="false" onAction="#OnresupplyButton" prefHeight="25.0" prefWidth="127.0" text="Re-supply request" />
+      <Button layoutX="210.0" layoutY="272.0" mnemonicParsing="false" onAction="#OnUpdatebutton" prefHeight="25.0" prefWidth="127.0" text="Update Request" />
+   </children>
+</AnchorPane>

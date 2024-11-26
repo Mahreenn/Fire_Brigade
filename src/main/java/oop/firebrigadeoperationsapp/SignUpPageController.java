@@ -43,7 +43,6 @@ public class SignUpPageController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
     }
-
     @javafx.fxml.FXML
     public void OnSignUpButtonClick(ActionEvent event) {
 //        create a user  after getting the data from the user and set text in te massageLabel
