@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Firefighter.FirefighterDashboard">
+   <children>
+      <Button layoutX="278.0" layoutY="98.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="136.0" text="Respond To Alert" />
+      <Button layoutX="429.0" layoutY="90.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="136.0" text="Request Equipment" />
+      <Button layoutX="280.0" layoutY="174.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="162.0" text="View Certificate" />
+      <Button layoutX="455.0" layoutY="175.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="119.0" text="Provide Training" />
+      <Button layoutX="146.0" layoutY="97.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="119.0" text="View Schedule" />
+      <Button layoutX="10.0" layoutY="97.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="119.0" text="Emergency Update" />
+      <Button layoutX="10.0" layoutY="182.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="119.0" text="Pick Team" />
+   </children>
+</AnchorPane>
