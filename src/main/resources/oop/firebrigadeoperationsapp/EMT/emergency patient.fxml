@@ -1,14 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="oop.firebrigadeoperationsapp.EMT.EmergencyPatient"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.EMT.EmergencyPatient">
+   <children>
+      <AnchorPane layoutX="377.0" layoutY="65.0" prefHeight="200.0" prefWidth="200.0" />
+      <AnchorPane layoutX="1.0" prefHeight="438.0" prefWidth="650.0">
+         <children>
+            <AnchorPane layoutX="-3.0" layoutY="-18.0" prefHeight="455.0" prefWidth="664.0">
+               <children>
+                  <Button layoutX="527.0" layoutY="28.0" mnemonicParsing="false" onAction="#notificationbutton" text="Notification" />
+                  <TableView fx:id="tableviewtextfield" layoutX="24.0" layoutY="173.0" prefHeight="91.0" prefWidth="300.0">
+                    <columns>
+                      <TableColumn fx:id="patientcondition" prefWidth="121.59993934631348" text="Patient condition" />
+                      <TableColumn fx:id="location" prefWidth="92.800048828125" text="location" />
+                        <TableColumn fx:id="burnedarea" prefWidth="84.00003051757812" text="Burned Area" />
+                    </columns>
+                  </TableView>
+                  <ComboBox layoutX="31.0" layoutY="124.0" prefWidth="150.0" promptText="Patient Availability" />
+                  <Button layoutX="86.0" layoutY="286.0" mnemonicParsing="false" onAction="#emergencypatient" text="Confirm emergency patient" />
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+   </children>
 </AnchorPane>
