@@ -3,7 +3,9 @@ package oop.firebrigadeoperationsapp.Dispatcher;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-public class DispatcherDashboardController {
+import java.io.Serializable;
+
+public class DispatcherDashboardController implements Serializable {
 
     @FXML
     void onAssignTeamButtonClick(ActionEvent event) {

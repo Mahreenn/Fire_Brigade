@@ -32,8 +32,6 @@ public class RecieveAlertfromExternalUserController {
     @FXML
     private DatePicker incidentdatdp;
 
-    @FXML
-    private TextField incidenttimetf;
 
     @FXML
     private Label messageLabel;
@@ -48,6 +46,8 @@ public class RecieveAlertfromExternalUserController {
 
     @FXML
     void OnsubmitAlertButtonClick(ActionEvent event) {
+        //read from user input and write object or text to file
+
         if(incidentdatdp.getValue().isAfter(LocalDate.now())){
             messageLabel.setText("Incident date cannot be in Future");
         }
