@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp.Firefighter;
+package oop.firebrigadeoperationsapp.Mahreen.Firefighter;
 
 import oop.firebrigadeoperationsapp.Employee;
 

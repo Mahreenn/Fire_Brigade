@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Firefighter.FirefighterDashboard">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Mahreen.Firefighter.FirefighterDashboard">
    <children>
       <Button layoutX="278.0" layoutY="98.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="136.0" text="Respond To Alert" />
       <Button layoutX="429.0" layoutY="90.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="136.0" text="Request Equipment" />

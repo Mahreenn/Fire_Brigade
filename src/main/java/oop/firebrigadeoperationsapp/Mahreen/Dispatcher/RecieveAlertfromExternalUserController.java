@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp;
+package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -45,12 +45,12 @@ public class RecieveAlertfromExternalUserController {
     }
 
     @FXML
-    void OnsubmitAlertButtonClick(ActionEvent event) {
-        //read from user input and write object or text to file
-
+    void OnsubmitAlertButtonClick(ActionEvent event) throws IOException {
         if(incidentdatdp.getValue().isAfter(LocalDate.now())){
             messageLabel.setText("Incident date cannot be in Future");
         }
+
+
         messageLabel.setText("Your Alert has been submitted to a Dispatcher near you");
 
     }

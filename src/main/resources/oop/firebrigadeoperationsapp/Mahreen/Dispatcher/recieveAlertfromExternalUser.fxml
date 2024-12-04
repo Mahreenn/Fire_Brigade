@@ -7,7 +7,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.RecieveAlertfromExternalUserController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Mahreen.Dispatcher.RecieveAlertfromExternalUserController">
    <children>
       <DatePicker fx:id="incidentdatdp" layoutX="96.0" layoutY="39.0" prefHeight="26.0" prefWidth="174.0" />
       <ComboBox fx:id="locationCombobox" layoutX="96.0" layoutY="132.0" prefHeight="26.0" prefWidth="174.0" />

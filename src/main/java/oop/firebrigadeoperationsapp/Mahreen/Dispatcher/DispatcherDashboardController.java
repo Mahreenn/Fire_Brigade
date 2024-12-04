@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp.Dispatcher;
+package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
