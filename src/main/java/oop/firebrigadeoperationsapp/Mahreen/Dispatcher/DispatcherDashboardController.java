@@ -1,11 +1,19 @@
 package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 
-import java.io.Serializable;
 
-public class DispatcherDashboardController implements Serializable {
+
+public class DispatcherDashboardController {
+
+   // private ObservableList<Alert> alertList = FXCollections.observableArrayList();
+
+ //   public void setAlertList(ObservableList<Alert> alertList) {
+ //       this.alertList = alertList;
+ //   }
 
     @FXML
     void onAssignTeamButtonClick(ActionEvent event) {

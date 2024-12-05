@@ -42,11 +42,6 @@
             <artifactId>pdfa</artifactId>
             <version>7.0.4</version>
         </dependency>
-        <dependency>
-            <groupId>com.itextpdf</groupId>
-            <artifactId>pdftest</artifactId>
-            <version>7.0.4</version>
-        </dependency>
 
 
 

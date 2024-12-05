@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp;
+package oop.firebrigadeoperationsapp.Mahreen;
 
 public class Location {
     private double latitude;

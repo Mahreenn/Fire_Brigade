@@ -3,6 +3,7 @@ package oop.firebrigadeoperationsapp.serarch_operator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 
 public class search_operator_DashboardController {
 

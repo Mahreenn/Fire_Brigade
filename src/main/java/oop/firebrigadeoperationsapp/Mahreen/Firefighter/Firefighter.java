@@ -2,6 +2,8 @@ package oop.firebrigadeoperationsapp.Mahreen.Firefighter;
 
 import oop.firebrigadeoperationsapp.Employee;
 
-public class Firefighter extends Employee {
+import java.io.Serializable;
+
+public class Firefighter extends Employee implements Serializable {
 
 }

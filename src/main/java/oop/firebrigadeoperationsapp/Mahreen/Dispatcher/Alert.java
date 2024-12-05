@@ -1,9 +1,12 @@
-package oop.firebrigadeoperationsapp;
+package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
+import oop.firebrigadeoperationsapp.Mahreen.Location;
+
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
-public class Alert {
+public class Alert implements Serializable {
     private LocalDate dateofAlert;
     private LocalTime timeofAlert;
     private String smalldescription;

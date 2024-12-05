@@ -1,5 +1,7 @@
 package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -12,7 +14,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+
+import oop.firebrigadeoperationsapp.HelloApplication;
+
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
 public class RecieveAlertfromExternalUserController {
@@ -36,6 +44,11 @@ public class RecieveAlertfromExternalUserController {
     @FXML
     private Label messageLabel;
 
+  //  private ObservableList<Alert> alertList = FXCollections.observableArrayList();
+
+ //   public void setAlertList(ObservableList<Alert> alertList) {
+  //      this.alertList = alertList;}
+
     @FXML
     public void initialize(){
         incidentdatdp.setValue(LocalDate.now());
@@ -44,12 +57,35 @@ public class RecieveAlertfromExternalUserController {
         locationCombobox.getItems().addAll("Uttara","Dhanmondi","Bashundhara","Mirpur");
     }
 
+
+
     @FXML
     void OnsubmitAlertButtonClick(ActionEvent event) throws IOException {
         if(incidentdatdp.getValue().isAfter(LocalDate.now())){
             messageLabel.setText("Incident date cannot be in Future");
         }
+        //deptCB.getSelectionModel().getSelectedItem() == null
+        if(areaTypeCombobox.getSelectionModel().getSelectedItem()==null){
+            messageLabel.setText("make Selection ");
+        }
+        ObjectOutputStream oos= null;
+        Try{
+            oos = new ObjectOutputStream(new FileOutputStream("alerts.bin"));
+            while(true){
 
+            }
+        }
+        catch(IOException){
+            messageLabel.setText(" a");
+        }
+        catch(){
+
+        }
+
+        finally{
+            oos.close();
+
+        }
 
         messageLabel.setText("Your Alert has been submitted to a Dispatcher near you");
 

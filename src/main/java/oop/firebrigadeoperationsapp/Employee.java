@@ -1,14 +1,15 @@
 package oop.firebrigadeoperationsapp;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 
 import static java.time.temporal.ChronoUnit.YEARS;
 
-public class Employee {
+public class Employee implements Serializable {
     private String ID, contact,username,password;
     LocalDate dob;
 
-    public Employee() {
+    public Employee () {
     }
 
     public Employee(String ID, String contact, String username, String password, LocalDate dob) {
