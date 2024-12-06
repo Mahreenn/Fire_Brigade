@@ -7,13 +7,14 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1275.0" style="-fx-background-color: #1c5db7;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fdpuser3.OnlineCustomerController">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1275.0" style="-fx-background-color: #cdcdb7;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Mahreen.Dispatcher.newDashController">
     <left>
         <VBox prefHeight="609.0" prefWidth="183.0" spacing="8.0" BorderPane.alignment="CENTER">
             <children>
@@ -40,12 +41,12 @@
                         <Font name="Arial Black" size="14.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#orderinventorybutton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Order Inventory" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                <Button mnemonicParsing="false" onAction="#inventoryrecordbutton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Inventory record" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                     <font>
                         <Font name="Arial Black" size="14.0" />
                     </font>
                 </Button>
-                <Button mnemonicParsing="false" onAction="#inventoryhistorybutton" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="inventory history" textAlignment="CENTER" textFill="#b496ff" wrapText="true">
+                <Button mnemonicParsing="false" onAction="#sendinventorybutton" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="send inventory" textAlignment="CENTER" textFill="#b496ff" wrapText="true">
                     <font>
                         <Font name="Arial Black" size="15.0" />
                     </font>
@@ -77,13 +78,13 @@
     <center>
         <AnchorPane prefHeight="616.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0">
                     <children>
                         <TableView fx:id="alertTableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
                             <columns>
                                 <TableColumn fx:id="dateTC" minWidth="0.0" prefWidth="122.39999389648438" text="date" />
                                 <TableColumn fx:id="areatypeTC" minWidth="0.0" prefWidth="240.0" text="area type" />
-                                <TableColumn fx:id="ambreq" minWidth="0.0" prefWidth="134.39996337890625" text="ambulance request" />
+                                <TableColumn fx:id="ambreqTC" minWidth="0.0" prefWidth="134.39996337890625" text="ambulance request" />
                                 <TableColumn fx:id="locationTC" minWidth="0.0" prefWidth="132.0" text=" location" />
                             </columns>
                         </TableView>
@@ -92,16 +93,16 @@
                                 <Font name="Arial Black" size="17.0" />
                             </font>
                         </Button>
-                        <Button layoutX="552.0" layoutY="621.0" mnemonicParsing="false" onAction="#passinfotoffbutton" prefHeight="56.0" prefWidth="254.0" style="-fx-background-color: #1f4a86;" text="passinfo to scene of firefighter" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                        <Button layoutX="552.0" layoutY="621.0" mnemonicParsing="false" onAction="#passinfotofffromalertbutton" prefHeight="56.0" prefWidth="254.0" style="-fx-background-color: #1f4a86;" text="passinfo to scene of firefighter" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                             <font>
                                 <Font name="Arial Black" size="14.0" />
                             </font>
                         </Button>
-                        <ComboBox fx:id="areatypecombobox" layoutX="454.0" layoutY="495.0" onAction="#selectFoodTypeComboBoxOnActionOrderFoodPane" prefHeight="27.0" prefWidth="179.0" promptText="select area type" />
+                        <ComboBox fx:id="areatypecombobox" layoutX="454.0" layoutY="495.0" prefHeight="27.0" prefWidth="179.0" promptText="select area type" />
                         <ComboBox fx:id="locationcombobox" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="select location" />
-                        <ComboBox fx:id="ambreqCOMBOBOX" layoutX="454.0" layoutY="432.0" onAction="#selectBeverageTypeComboBoxOnActionOrderFoodPane" prefHeight="25.0" prefWidth="179.0" promptText="ambulance request" />
+                        <ComboBox fx:id="ambreqCOMBOBOX" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="ambulance request" />
                   <DatePicker fx:id="alertdp" layoutX="663.0" layoutY="495.0" />
-                        <Label fx:id="mesaageLabel" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                        <Label fx:id="mesaageLabelw1" layoutX="313.0" layoutY="539.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
@@ -146,39 +147,149 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="updatealertstatusPANE" layoutX="-254.0" layoutY="-15.0" prefHeight="617.0" prefWidth="1059.0">
+            <AnchorPane fx:id="updatealertstatusPANE" layoutX="-254.0" layoutY="-15.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
-                  <TableView fx:id="allocationtableview1" layoutX="320.0" layoutY="226.0" prefHeight="177.0" prefWidth="625.0">
+                  <TableView fx:id="allocationtableview1" layoutX="305.0" layoutY="278.0" prefHeight="177.0" prefWidth="625.0">
                      <columns>
-                        <TableColumn fx:id="teamNoCol1" minWidth="0.0" prefWidth="152.0" text="alert" />
-                        <TableColumn fx:id="noOfmembersCol1" minWidth="0.0" prefWidth="177.5999755859375" text="status" />
-                        <TableColumn fx:id="alertidallocatedcol1" minWidth="0.0" prefWidth="298.4000244140625" />
+                        <TableColumn fx:id="teamNoCol1" minWidth="0.0" prefWidth="172.66665649414062" text="alert" />
+                        <TableColumn fx:id="noOfmembersCol1" minWidth="0.0" prefWidth="156.00003051757812" text="status" />
+                        <TableColumn fx:id="noOfmembersCol11" minWidth="0.0" prefWidth="154.0" text="type of emergency" />
+                        <TableColumn fx:id="noOfmembersCol111" minWidth="0.0" prefWidth="142.6666259765625" text="casualties" />
                      </columns>
                   </TableView>
-                  <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#viewassignmentsbutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="view assigned details in table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                  <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#writetofilebutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="write to file" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                      <font>
                         <Font name="Arial Black" size="17.0" />
                      </font>
                   </Button>
-                  <Button layoutX="541.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendtoteamButton" prefHeight="56.0" prefWidth="390.0" style="-fx-background-color: #1f4a86;" text="send to designated firefighter Team" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                  <Button layoutX="541.0" layoutY="556.0" mnemonicParsing="false" onAction="#filterbutton" prefHeight="56.0" prefWidth="390.0" style="-fx-background-color: #1f4a86;" text="view alert that has more than 5 casualties" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                      <font>
                         <Font name="Arial Black" size="14.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="alertidcombox1" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="alert id" />
-                  <ComboBox fx:id="firefighterteamcombobox1" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="firefighter teams" />
                   <Label fx:id="mesaageLabel11" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>
                   </Label>
-                  <Label layoutX="425.0" layoutY="66.0" prefHeight="94.0" prefWidth="496.0" text="Update status" textAlignment="CENTER" textFill="#f6fffd" wrapText="true">
+                  <Label layoutX="365.0" layoutY="35.0" prefHeight="94.0" prefWidth="259.0" text="Update status" textAlignment="CENTER" textFill="#364844" wrapText="true">
                      <font>
-                        <Font name="Book Antiqua Bold" size="33.0" />
+                        <Font size="39.0" />
                      </font>
                   </Label>
-                  <TextField layoutX="455.0" layoutY="160.0" />
-                  <TextField layoutX="697.0" layoutY="160.0" />
+                  <TextField layoutX="381.0" layoutY="151.0" />
+                  <TextField layoutX="641.0" layoutY="151.0" />
+                  <Label layoutX="329.0" layoutY="155.0" prefHeight="17.0" prefWidth="51.0" text="alert id:" />
+                  <Label layoutX="592.0" layoutY="155.0" prefHeight="17.0" prefWidth="52.0" text="status:" />
+                  <TextField layoutX="641.0" layoutY="198.0" />
+                  <Label layoutX="566.0" layoutY="202.0" prefHeight="17.0" prefWidth="69.0" text="casualities:" />
+                  <Label layoutX="288.0" layoutY="214.0" prefHeight="17.0" prefWidth="113.0" text="type of emergency:" />
+                  <TextField layoutX="391.0" layoutY="206.0" prefHeight="44.0" prefWidth="145.0" />
+                  <Label fx:id="messagelabel" layoutX="297.0" layoutY="511.0" prefHeight="125.0" prefWidth="201.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="viewrequestPANE" layoutX="-244.0" layoutY="-5.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <TableView fx:id="allocationtableview11" layoutX="260.0" layoutY="136.0" prefHeight="177.0" prefWidth="625.0">
+                     <columns>
+                        <TableColumn fx:id="teamNoCol11" minWidth="0.0" prefWidth="172.66665649414062" text="fire fighter team no" />
+                        <TableColumn fx:id="noOfmembersCol11" minWidth="0.0" prefWidth="156.00003051757812" text="equipment" />
+                        <TableColumn fx:id="noOfmembersCol111" minWidth="0.0" prefWidth="153.3333740234375" text="amount" />
+                        <TableColumn fx:id="noOfmembersCol1111" minWidth="0.0" prefWidth="153.3333740234375" text="location" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#loaddatabutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="load data passed from firefighter" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Label fx:id="mesaageLabel111" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="365.0" layoutY="35.0" prefHeight="94.0" prefWidth="259.0" text="view request" textAlignment="CENTER" textFill="#364844" wrapText="true">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messagelabel1" layoutX="297.0" layoutY="511.0" prefHeight="125.0" prefWidth="201.0" />
+                  <Label fx:id="messageLabel" layoutX="308.0" layoutY="427.0" prefHeight="166.0" prefWidth="244.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="inventoryrecordPANE" layoutX="-234.0" layoutY="5.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <TableView fx:id="allocationtableview111" layoutX="260.0" layoutY="136.0" prefHeight="177.0" prefWidth="625.0">
+                     <columns>
+                        <TableColumn fx:id="teamNoCol111" minWidth="0.0" prefWidth="312.66668701171875" text="equipment name" />
+                        <TableColumn fx:id="noOfmembersCol111" minWidth="0.0" prefWidth="312.6666259765625" text="amount" />
+                        <TableColumn fx:id="noOfmembersCol1111" minWidth="0.0" prefWidth="0.0" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="260.0" layoutY="346.0" mnemonicParsing="false" onAction="#loaddatabutton" prefHeight="38.0" prefWidth="285.0" style="-fx-background-color: #1f4a86;" text="display available inventory" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Label layoutX="365.0" layoutY="35.0" prefHeight="94.0" prefWidth="327.0" text=" Inventory Record" textAlignment="CENTER" textFill="#364844" wrapText="true">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messageLabel1" layoutX="260.0" layoutY="420.0" prefHeight="166.0" prefWidth="244.0" />
+                  <Button layoutX="573.0" layoutY="346.0" mnemonicParsing="false" onAction="#loaddatabutton" prefHeight="38.0" prefWidth="285.0" style="-fx-background-color: #1f4a86;" text="display chart" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="sendPANE" layoutX="-223.0" layoutY="82.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <Label layoutX="365.0" layoutY="35.0" prefHeight="94.0" prefWidth="327.0" text=" send Inventory " textAlignment="CENTER" textFill="#364844" wrapText="true">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messageLabel11" layoutX="271.0" layoutY="263.0" prefHeight="166.0" prefWidth="244.0" />
+                  <Button layoutX="549.0" layoutY="290.0" mnemonicParsing="false" onAction="#loaddatabutton" prefHeight="80.0" prefWidth="285.0" style="-fx-background-color: #1f4a86;" text="send inventory and update in order records scene" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="sendequipcombobox" layoutX="354.0" layoutY="144.0" prefWidth="150.0" />
+                  <Label layoutX="286.0" layoutY="140.0" prefHeight="31.0" prefWidth="79.0" text="equipment:" />
+                  <Label layoutX="565.0" layoutY="148.0" prefHeight="21.0" prefWidth="53.0" text="amount" />
+                  <ComboBox fx:id="sendamountcombobox" layoutX="617.0" layoutY="146.0" prefWidth="150.0" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="generateReportPANE" layoutX="-213.0" layoutY="92.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <Label layoutX="330.0" prefHeight="94.0" prefWidth="327.0" text="generate report" textAlignment="CENTER" textFill="#364844" wrapText="true">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messageLabel111" layoutX="271.0" layoutY="263.0" prefHeight="166.0" prefWidth="244.0" />
+                  <Button layoutX="341.0" layoutY="113.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" text="source" />
+                  <Button layoutX="341.0" layoutY="169.0" mnemonicParsing="false" text="destination" />
+                  <TextField layoutX="455.0" layoutY="113.0" prefHeight="32.0" prefWidth="213.0" />
+                  <TextField layoutX="455.0" layoutY="166.0" prefHeight="32.0" prefWidth="213.0" />
+                  <Button layoutX="492.0" layoutY="272.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="141.0" text="generate" />
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="manualPANE" layoutX="-203.0" layoutY="102.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <Label layoutX="330.0" prefHeight="94.0" prefWidth="327.0" text="fire safety manual" textAlignment="CENTER" textFill="#364844" wrapText="true">
+                     <font>
+                        <Font size="39.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="messageLabel1111" layoutX="271.0" layoutY="263.0" prefHeight="166.0" prefWidth="244.0" />
+                  <Button layoutX="288.0" layoutY="108.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="84.0" text="display" />
+                  <Button layoutX="288.0" layoutY="171.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="83.0" text="save edited " />
+                  <TextArea layoutX="392.0" layoutY="99.0" prefHeight="414.0" prefWidth="543.0" />
+                  <Button layoutX="288.0" layoutY="263.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="83.0" text="make pdf" />
                </children>
             </AnchorPane>
             </children>
