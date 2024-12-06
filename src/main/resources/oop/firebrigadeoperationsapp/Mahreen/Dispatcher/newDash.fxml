@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="714.0" prefWidth="1275.0" style="-fx-background-color: #1c5db7;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fdpuser3.OnlineCustomerController">
+    <left>
+        <VBox prefHeight="609.0" prefWidth="183.0" spacing="8.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button mnemonicParsing="false" onAction="#viewAlertButton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="VIEW ALERT" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#assignteambutton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="ASSIGN TEAM" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#updatealalertstatusbutton" prefHeight="53.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Update alert status" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#viewrequestbutton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="View Request" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#orderinventorybutton" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Order Inventory" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#inventoryhistorybutton" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="inventory history" textAlignment="CENTER" textFill="#b496ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="15.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#generateincidentreportbutton" prefHeight="64.0" prefWidth="166.0" style="-fx-background-color: #1f4a86;" text="Generate incident report" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#manualbutton" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="Fire Safety Manual" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="14.0" />
+                    </font>
+                </Button>
+                <Button mnemonicParsing="false" onAction="#logoutButon" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: #1f4a86;" text="logout" textAlignment="CENTER" textFill="#ff96bb" wrapText="true">
+                    <font>
+                        <Font name="Arial Black" size="15.0" />
+                    </font>
+                </Button>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </BorderPane.margin>
+            <padding>
+                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+            </padding>
+        </VBox>
+    </left>
+    <center>
+        <AnchorPane prefHeight="616.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
+            <children>
+                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+                    <children>
+                        <TableView fx:id="alertTableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
+                            <columns>
+                                <TableColumn fx:id="dateTC" minWidth="0.0" prefWidth="122.39999389648438" text="date" />
+                                <TableColumn fx:id="areatypeTC" minWidth="0.0" prefWidth="240.0" text="area type" />
+                                <TableColumn fx:id="ambreq" minWidth="0.0" prefWidth="134.39996337890625" text="ambulance request" />
+                                <TableColumn fx:id="locationTC" minWidth="0.0" prefWidth="132.0" text=" location" />
+                            </columns>
+                        </TableView>
+                        <Button layoutX="548.0" layoutY="569.0" mnemonicParsing="false" onAction="#viewalertsbutton" prefHeight="38.0" prefWidth="249.0" style="-fx-background-color: #1f4a86;" text="view alerts in table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                            <font>
+                                <Font name="Arial Black" size="17.0" />
+                            </font>
+                        </Button>
+                        <Button layoutX="552.0" layoutY="621.0" mnemonicParsing="false" onAction="#passinfotoffbutton" prefHeight="56.0" prefWidth="254.0" style="-fx-background-color: #1f4a86;" text="passinfo to scene of firefighter" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                            <font>
+                                <Font name="Arial Black" size="14.0" />
+                            </font>
+                        </Button>
+                        <ComboBox fx:id="areatypecombobox" layoutX="454.0" layoutY="495.0" onAction="#selectFoodTypeComboBoxOnActionOrderFoodPane" prefHeight="27.0" prefWidth="179.0" promptText="select area type" />
+                        <ComboBox fx:id="locationcombobox" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="select location" />
+                        <ComboBox fx:id="ambreqCOMBOBOX" layoutX="454.0" layoutY="432.0" onAction="#selectBeverageTypeComboBoxOnActionOrderFoodPane" prefHeight="25.0" prefWidth="179.0" promptText="ambulance request" />
+                  <DatePicker fx:id="alertdp" layoutX="663.0" layoutY="495.0" />
+                        <Label fx:id="mesaageLabel" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Label>
+                    <Label layoutX="425.0" layoutY="66.0" prefHeight="94.0" prefWidth="496.0" text="DISPATCHER DASHBOARD" textAlignment="CENTER" textFill="#f6fffd" wrapText="true">
+                        <font>
+                            <Font name="Book Antiqua Bold" size="33.0" />
+                        </font>
+                    </Label>
+                    </children>
+                </AnchorPane>
+            <AnchorPane fx:id="assignTeamPANE" layoutX="-264.0" layoutY="-25.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+               <children>
+                  <TableView fx:id="allocationtableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
+                     <columns>
+                        <TableColumn fx:id="teamNoCol" minWidth="0.0" prefWidth="187.20001220703125" text="firefighter team number" />
+                        <TableColumn fx:id="noOfmembersCol" minWidth="0.0" prefWidth="200.00006103515625" text="number of members" />
+                        <TableColumn fx:id="alertidallocatedcol" minWidth="0.0" prefWidth="238.39996337890625" text="alert id allocated" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#viewassignmentsbutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="view assigned details in table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="541.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendtoteamButton" prefHeight="56.0" prefWidth="390.0" style="-fx-background-color: #1f4a86;" text="send to designated firefighter Team" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="alertidcombox" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="alert id" />
+                  <ComboBox fx:id="firefighterteamcombobox" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="firefighter teams" />
+                  <Label fx:id="mesaageLabel1" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="425.0" layoutY="66.0" prefHeight="94.0" prefWidth="496.0" text="Assign a Team to a Alert" textAlignment="CENTER" textFill="#f6fffd" wrapText="true">
+                     <font>
+                        <Font name="Book Antiqua Bold" size="33.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <AnchorPane fx:id="updatealertstatusPANE" layoutX="-254.0" layoutY="-15.0" prefHeight="617.0" prefWidth="1059.0">
+               <children>
+                  <TableView fx:id="allocationtableview1" layoutX="320.0" layoutY="226.0" prefHeight="177.0" prefWidth="625.0">
+                     <columns>
+                        <TableColumn fx:id="teamNoCol1" minWidth="0.0" prefWidth="152.0" text="alert" />
+                        <TableColumn fx:id="noOfmembersCol1" minWidth="0.0" prefWidth="177.5999755859375" text="status" />
+                        <TableColumn fx:id="alertidallocatedcol1" minWidth="0.0" prefWidth="298.4000244140625" />
+                     </columns>
+                  </TableView>
+                  <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#viewassignmentsbutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="view assigned details in table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="17.0" />
+                     </font>
+                  </Button>
+                  <Button layoutX="541.0" layoutY="556.0" mnemonicParsing="false" onAction="#sendtoteamButton" prefHeight="56.0" prefWidth="390.0" style="-fx-background-color: #1f4a86;" text="send to designated firefighter Team" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+                     <font>
+                        <Font name="Arial Black" size="14.0" />
+                     </font>
+                  </Button>
+                  <ComboBox fx:id="alertidcombox1" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="alert id" />
+                  <ComboBox fx:id="firefighterteamcombobox1" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="firefighter teams" />
+                  <Label fx:id="mesaageLabel11" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                     <font>
+                        <Font name="System Bold" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="425.0" layoutY="66.0" prefHeight="94.0" prefWidth="496.0" text="Update status" textAlignment="CENTER" textFill="#f6fffd" wrapText="true">
+                     <font>
+                        <Font name="Book Antiqua Bold" size="33.0" />
+                     </font>
+                  </Label>
+                  <TextField layoutX="455.0" layoutY="160.0" />
+                  <TextField layoutX="697.0" layoutY="160.0" />
+               </children>
+            </AnchorPane>
+            </children>
+        </AnchorPane>
+    </center>
+</BorderPane>

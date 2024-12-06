@@ -65,11 +65,7 @@ public class ViewalertController {
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage)(((Node) event.getSource()).getScene().getWindow());
         stage.setScene(scene);
-        ViewalertController vac = fxmlLoader.getController();
-        vac.setAlertList(alertList);
 
-        DispatcherDashboardController ddc = fxmlLoader.getController();
-        ddc.setAlertList(alertList);  // add set alertlist setter method to ddc
 
     }
 

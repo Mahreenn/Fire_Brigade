@@ -16,12 +16,17 @@ import javafx.stage.Stage;
 
 
 import oop.firebrigadeoperationsapp.HelloApplication;
+import oop.firebrigadeoperationsapp.Mahreen.Location;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
+
+import static oop.firebrigadeoperationsapp.Mahreen.Location.fromStringToLocation;
 
 public class RecieveAlertfromExternalUserController {
 
@@ -34,8 +39,8 @@ public class RecieveAlertfromExternalUserController {
     @FXML
     private ComboBox<String> locationCombobox;
 
-    @FXML
-    private TextField descriptionTf;
+  //  @FXML
+  //  private TextField incidenttimetf;
 
     @FXML
     private DatePicker incidentdatdp;
@@ -68,23 +73,34 @@ public class RecieveAlertfromExternalUserController {
         if(areaTypeCombobox.getSelectionModel().getSelectedItem()==null){
             messageLabel.setText("make Selection ");
         }
+        LocalDate  date = incidentdatdp.getValue();
+      //  LocalTime time = (LocalTime) incidenttimetf.getText();
+        String location =   locationCombobox.getValue();
+        Location loc =  fromStringToLocation(location);
+        String area = areaTypeCombobox.getValue();
+        Boolean ambReq = ambulancereqCombobox.getValue();
+
+
+      //  ArrayList<Alert> alertList = new ArrayList<>();
+        Alert newA = new Alert(date,area,ambReq,loc);
+
         ObjectOutputStream oos= null;
-        Try{
+        try{
             oos = new ObjectOutputStream(new FileOutputStream("alerts.bin"));
             while(true){
-
+                oos.writeObject(newA);
             }
         }
-        catch(IOException){
+        catch(IOException e){
             messageLabel.setText(" a");
         }
-        catch(){
-
+        catch(ClassNotFoundException n){
+            messageLabel.setText(" a");
         }
 
         finally{
-            oos.close();
-
+            if (oos != null)
+                oos.close();
         }
 
         messageLabel.setText("Your Alert has been submitted to a Dispatcher near you");

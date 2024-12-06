@@ -10,7 +10,6 @@
       <Button layoutX="41.0" layoutY="106.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="154.0" text="Create Report and display" />
       <TextArea layoutX="217.0" layoutY="184.0" prefHeight="202.0" prefWidth="370.0" />
       <Button layoutX="39.0" layoutY="196.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="161.0" text="Update Report" />
-      <Button layoutX="35.0" layoutY="282.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="176.0" text="Send Report to Stations" />
       <CheckBox layoutX="43.0" layoutY="25.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="85.0" text="Casualities" />
       <CheckBox layoutX="360.0" layoutY="35.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="131.0" text="Medical KIt" />
       <CheckBox layoutX="141.0" layoutY="35.0" mnemonicParsing="false" prefHeight="42.0" prefWidth="138.0" text="Injury vuctims" />
