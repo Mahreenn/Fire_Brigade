@@ -1,5 +1,7 @@
 package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -7,7 +9,20 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import oop.firebrigadeoperationsapp.Mahreen.Firefighter.FirefighterDashboardController;
+import oop.firebrigadeoperationsapp.Mahreen.Location;
+
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
+
+import static oop.firebrigadeoperationsapp.Mahreen.Location.fromStringToLocation;
 
 public class newDashController {
         @FXML
@@ -36,7 +51,7 @@ public class newDashController {
         private AnchorPane viewAlertPANE;
 
         @FXML
-        private Label mesaageLabelw1;
+        private Label msglblw1;
 
         @FXML
         private TableView<Alert> alertTableview;
@@ -54,13 +69,13 @@ public class newDashController {
         private ComboBox<String> areatypecombobox;
 
         @FXML
-        private TableColumn<?, ?> dateTC;
+        private TableColumn<Alert , LocalDateTime> dateTC;
 
         @FXML
-        private TableColumn<?, ?> locationTC;
+        private TableColumn<Alert, Location> locationTC;
 
         @FXML
-        private ComboBox<?> locationcombobox;
+        private ComboBox<String> locationcombobox;
 
         @FXML
         private DatePicker alertdp;
@@ -69,8 +84,25 @@ public class newDashController {
         //workflow2
 
         @FXML
-        private TableView<?> allocationtableview;
+        private TableView<Allocation> allocationtableview;
 
+        @FXML
+        private TableColumn<Allocation, Integer> alertidallocatedcol;
+
+        @FXML
+        private ComboBox<Integer> alertidcombox;
+
+        @FXML
+        private ComboBox<Integer> firefighterteamcombobox;
+
+        @FXML
+        private TableColumn<Allocation, Integer> teamNoCol;
+
+        @FXML
+        private Label msglblw2;
+
+
+        //workflow 3
         @FXML
         private TableView<?> allocationtableview1;
 
@@ -79,17 +111,6 @@ public class newDashController {
 
         @FXML
         private TableView<?> allocationtableview111;
-
-        @FXML
-        private TableColumn<?, ?> alertidallocatedcol;
-
-        @FXML
-        private ComboBox<?> alertidcombox;
-
-        @FXML
-        private ComboBox<?> firefighterteamcombobox;
-
-
 
 
         @FXML
@@ -101,8 +122,6 @@ public class newDashController {
         @FXML
         private Label messageLabel11;
 
-        @FXML
-        private Label messageLabel111;
 
         @FXML
         private Label messageLabel1111;
@@ -134,8 +153,7 @@ public class newDashController {
         @FXML
         private ComboBox<?> sendequipcombobox;
 
-        @FXML
-        private TableColumn<?, ?> teamNoCol;
+
 
         @FXML
         private TableColumn<?, ?> teamNoCol1;
@@ -145,6 +163,9 @@ public class newDashController {
 
         @FXML
         private TableColumn<?, ?> teamNoCol111;
+
+        public ObservableList<Alert> alertList = FXCollections.observableArrayList();
+        public ObservableList<Allocation> allocationObservableList = FXCollections.observableArrayList();
 
 
 
@@ -159,13 +180,112 @@ public class newDashController {
             generateReportPANE.setVisible(false);
             manualPANE.setVisible(false);
 
+
+            //wokrkflow1
+            alertdp.setValue(LocalDate.now());
+            areatypecombobox.getItems().addAll("Residential","Industrial", "Commercial","Densely populated","Road");
+            ambreqCOMBOBOX.getItems().addAll(true, false);
+            locationcombobox.getItems().addAll("Uttara","Dhanmondi","Bashundhara","Mirpur");
+            locationTC.setCellValueFactory(new PropertyValueFactory<>("location"));
+            areatypeTC.setCellValueFactory(new PropertyValueFactory<>("areaType"));
+            dateTC.setCellValueFactory(new PropertyValueFactory<>("dateofAlert"));
+            ambreq.setCellValueFactory(new PropertyValueFactory<>("ambulanceReq"));
+
+
+            //wokrflow2
+                firefighterteamcombobox.getItems().addAll(1,2,3,4,5);
+                for (Alert alert : alertList) {
+                        alertidcombox.getItems().add(alert.getAlertID());
+                }
+        }
+
+       //workflow1
+        @FXML
+        void viewAlertButton(ActionEvent event) {
+                viewAlertPANE.setVisible(true);
+                assignTeamPANE.setVisible(false);
+                updatealertstatusPANE.setVisible(false);
+                viewrequestPANE.setVisible(false);
+                inventoryrecordPANE.setVisible(false);
+                sendPANE.setVisible(false);
+                generateReportPANE.setVisible(false);
+                manualPANE.setVisible(false);
         }
 
         @FXML
+        void viewalertsbutton(ActionEvent event) {
+                if(alertdp.getValue().isAfter(LocalDate.now())){
+                        msglblw1.setText("Incident date cannot be in Future");
+                }
+                if(areatypecombobox.getSelectionModel().getSelectedItem()==null){
+                        msglblw1.setText("make area type Selection ");
+                }
+
+                LocalDate  incidentdate = alertdp.getValue();
+                String incidentloc =   locationcombobox.getValue();
+                Location loc =  fromStringToLocation(incidentloc);
+                String area = areatypecombobox.getValue();
+                Boolean ambRequest = ambreqCOMBOBOX.getValue();
+
+                Alert newAlert = new Alert(incidentdate, area, ambRequest, loc);
+
+                alertList.add(newAlert);
+                alertTableview.getItems().addAll((alertList));
+        }
+
+        @FXML
+        void passinfotofffromalertbutton(ActionEvent event)throws IOException {
+                ObjectOutputStream oos = null;
+                if (! alertTableview.getItems().isEmpty()) {
+
+                        try {
+                                oos = new ObjectOutputStream(new FileOutputStream("alerts.bin", true));
+                                for(Alert a:alertList){
+                                        oos.writeObject(a);
+                                }
+                                alertList.clear();
+                                msglblw1.setText("object written to alerts.bin");
+
+                        } catch (IOException e) {
+                                msglblw1.setText("error!");
+                        }
+                        finally {
+                                if (oos!=null){
+                                        oos.close();
+                                }
+                        }
+                }else {
+                        msglblw1.setText("No data to write!");
+                }
+        }
+
+        //workflow 2
+        @FXML
         void assignteambutton(ActionEvent event) {
+                viewAlertPANE.setVisible(false);
+                assignTeamPANE.setVisible(true);
+                updatealertstatusPANE.setVisible(false);
+                viewrequestPANE.setVisible(false);
+                inventoryrecordPANE.setVisible(false);
+                sendPANE.setVisible(false);
+                generateReportPANE.setVisible(false);
+                manualPANE.setVisible(false);
+        }
+
+        @FXML
+        void viewassignmentsbutton(ActionEvent event) {
 
         }
 
+        @FXML
+        void sendtoteamButton(ActionEvent event) {
+                for(Allocation a: allocationObservableList){
+                    FirefighterDashboardController.respondToAlert(a);
+                }
+        }
+
+
+       //workflow3
         @FXML
         void filterbutton(ActionEvent event) {
 
@@ -196,41 +316,18 @@ public class newDashController {
 
         }
 
-        @FXML
-        void passinfotofffromalertbutton(ActionEvent event) {
-
-        }
-
 
         @FXML
         void sendinventorybutton(ActionEvent event) {
 
         }
 
-        @FXML
-        void sendtoteamButton(ActionEvent event) {
-
-        }
 
         @FXML
         void updatealalertstatusbutton(ActionEvent event) {
 
         }
 
-        @FXML
-        void viewAlertButton(ActionEvent event) {
-
-        }
-
-        @FXML
-        void viewalertsbutton(ActionEvent event) {
-
-        }
-
-        @FXML
-        void viewassignmentsbutton(ActionEvent event) {
-
-        }
 
         @FXML
         void viewrequestbutton(ActionEvent event) {

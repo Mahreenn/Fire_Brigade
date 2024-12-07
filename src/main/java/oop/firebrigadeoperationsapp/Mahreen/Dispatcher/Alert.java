@@ -7,16 +7,28 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Alert implements Serializable {
+    private static int nextAlertID = 1;
+
+    public int alertID;
     private LocalDate dateofAlert;
     private String areaType; // e.g., Residential, Commercial,
     private Boolean ambulanceReq;
     private Location location;
 
     public Alert(LocalDate dateofAlert, String areaType, Boolean ambulanceReq, Location location) {
+        this.alertID = nextAlertID++;
         this.dateofAlert = dateofAlert;
         this.areaType = areaType;
         this.ambulanceReq = ambulanceReq;
         this.location = location;
+    }
+
+    public int getAlertID() {
+        return alertID;
+    }
+
+    public void setAlertID(int alertID) {
+        this.alertID = alertID;
     }
 
     public LocalDate getDateofAlert() {

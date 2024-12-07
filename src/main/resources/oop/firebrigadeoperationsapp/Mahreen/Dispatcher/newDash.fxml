@@ -78,7 +78,7 @@
     <center>
         <AnchorPane prefHeight="616.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
             <children>
-                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0">
+                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
                     <children>
                         <TableView fx:id="alertTableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
                             <columns>
@@ -102,7 +102,7 @@
                         <ComboBox fx:id="locationcombobox" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="select location" />
                         <ComboBox fx:id="ambreqCOMBOBOX" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="ambulance request" />
                   <DatePicker fx:id="alertdp" layoutX="663.0" layoutY="495.0" />
-                        <Label fx:id="mesaageLabelw1" layoutX="313.0" layoutY="539.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                        <Label fx:id="msglblw1" layoutX="313.0" layoutY="539.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
                             <font>
                                 <Font name="System Bold" size="13.0" />
                             </font>
@@ -114,13 +114,12 @@
                     </Label>
                     </children>
                 </AnchorPane>
-            <AnchorPane fx:id="assignTeamPANE" layoutX="-264.0" layoutY="-25.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="assignTeamPANE" layoutX="-264.0" layoutY="-25.0" prefHeight="691.0" prefWidth="1302.0">
                <children>
-                  <TableView fx:id="allocationtableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
+                  <TableView fx:id="allocationtableview" layoutX="470.0" layoutY="168.0" prefHeight="177.0" prefWidth="544.0">
                      <columns>
-                        <TableColumn fx:id="teamNoCol" minWidth="0.0" prefWidth="187.20001220703125" text="firefighter team number" />
-                        <TableColumn fx:id="noOfmembersCol" minWidth="0.0" prefWidth="200.00006103515625" text="number of members" />
-                        <TableColumn fx:id="alertidallocatedcol" minWidth="0.0" prefWidth="238.39996337890625" text="alert id allocated" />
+                        <TableColumn fx:id="teamNoCol" minWidth="0.0" prefWidth="296.6666259765625" text="firefighter team number" />
+                        <TableColumn fx:id="alertidallocatedcol" minWidth="0.0" prefWidth="246.0" text="alert id allocated" />
                      </columns>
                   </TableView>
                   <Button layoutX="563.0" layoutY="492.0" mnemonicParsing="false" onAction="#viewassignmentsbutton" prefHeight="38.0" prefWidth="357.0" style="-fx-background-color: #1f4a86;" text="view assigned details in table" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
@@ -135,7 +134,7 @@
                   </Button>
                   <ComboBox fx:id="alertidcombox" layoutX="661.0" layoutY="432.0" prefHeight="25.0" prefWidth="180.0" promptText="alert id" />
                   <ComboBox fx:id="firefighterteamcombobox" layoutX="454.0" layoutY="432.0" prefHeight="25.0" prefWidth="179.0" promptText="firefighter teams" />
-                  <Label fx:id="mesaageLabel1" layoutX="365.0" layoutY="556.0" prefHeight="135.0" prefWidth="181.0" textFill="#ededed" wrapText="true">
+                  <Label fx:id="msglblw2" layoutX="288.0" layoutY="470.0" prefHeight="181.0" prefWidth="227.0" textFill="#ededed" wrapText="true">
                      <font>
                         <Font name="System Bold" size="13.0" />
                      </font>

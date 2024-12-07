@@ -3,9 +3,9 @@ package oop.firebrigadeoperationsapp.Mahreen;
 import java.io.Serializable;
 
 public class Location implements Serializable {
-    private double latitude;
-    private double longitude;
-    private int responseTimeEstimate;  //in minutes
+    public double latitude;
+    public double longitude;
+    public int responseTimeEstimate;  //in minutes
 
     public Location(double latitude, double longitude, int responseTimeEstimate) {
         this.latitude = latitude;
