@@ -9,7 +9,7 @@ public class Firefighter extends Employee implements Serializable {
     public int firefighterTeamNO;
 
     public Firefighter(String ID, String contact, String username, String password, LocalDate dob, int firefighterTeamNO) {
-        super(ID, contact, username, password, dob);
+        super(contact, username, password, dob);
         this.firefighterTeamNO = firefighterTeamNO;
     }
 

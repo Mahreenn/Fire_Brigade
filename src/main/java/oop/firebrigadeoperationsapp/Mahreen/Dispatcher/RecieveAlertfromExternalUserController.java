@@ -94,9 +94,9 @@ public class RecieveAlertfromExternalUserController {
         catch(IOException e){
             messageLabel.setText(" a");
         }
-        catch(ClassNotFoundException n){
-            messageLabel.setText(" a");
-        }
+//        catch(ClassNotFoundException n){
+//            messageLabel.setText(" a");
+//        }
 
         finally{
             if (oos != null)

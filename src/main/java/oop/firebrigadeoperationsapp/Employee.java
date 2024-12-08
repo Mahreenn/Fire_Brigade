@@ -6,27 +6,26 @@ import java.time.LocalDate;
 import static java.time.temporal.ChronoUnit.YEARS;
 
 public class Employee implements Serializable {
-    private String ID, contact,username,password;
+    private String  contact,username,password;
     LocalDate dob;
 
-    public Employee () {
-    }
+//    public Employee () {
+//    }
 
-    public Employee(String ID, String contact, String username, String password, LocalDate dob) {
-        this.ID = ID;
+    public Employee( String contact, String username, String password, LocalDate dob) {
         this.contact = contact;
         this.username = username;
         this.password = password;
         this.dob = dob;
     }
 
-    public String getID() {
-        return ID;
-    }
+//    public String getID() {
+//        return ID;
+//    }
 
-    public void setID(String ID) {
-        this.ID = ID;
-    }
+//    public void setID(String ID) {
+//        this.ID = ID;
+//    }
 
     public String getContact() {
         return contact;
@@ -43,7 +42,7 @@ public class Employee implements Serializable {
     @Override
     public String toString() {
         return "Employee{" +
-                "ID='" + ID + '\'' +
+//                "ID='" + ID + '\'' +
                 ", contact='" + contact + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +

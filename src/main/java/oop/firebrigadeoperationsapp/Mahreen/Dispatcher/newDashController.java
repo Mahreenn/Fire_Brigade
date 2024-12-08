@@ -277,12 +277,12 @@ public class newDashController {
 
         }
 
-        @FXML
-        void sendtoteamButton(ActionEvent event) {
-                for(Allocation a: allocationObservableList){
-                    FirefighterDashboardController.respondToAlert(a);
-                }
-        }
+//        @FXML
+//        void sendtoteamButton(ActionEvent event) {
+//                for(Allocation a: allocationObservableList){
+//                    FirefighterDashboardController.respondToAlert(a);
+//                }
+//        }
 
 
        //workflow3
