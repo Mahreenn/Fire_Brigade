@@ -1,7 +1,5 @@
-package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
+package oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,22 +9,17 @@ import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 
-import oop.firebrigadeoperationsapp.HelloApplication;
-import oop.firebrigadeoperationsapp.Mahreen.Location;
+import oop.firebrigadeoperationsapp.Mahreen2311459.Location;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
-import java.time.LocalTime;
-import java.util.ArrayList;
 
-import static oop.firebrigadeoperationsapp.Mahreen.Location.fromStringToLocation;
+import static oop.firebrigadeoperationsapp.Mahreen2311459.Location.fromStringToLocation;
 
 public class RecieveAlertfromExternalUserController {
 
@@ -93,12 +86,7 @@ public class RecieveAlertfromExternalUserController {
         }
         catch(IOException e){
             messageLabel.setText(" a");
-        }
-//        catch(ClassNotFoundException n){
-//            messageLabel.setText(" a");
-//        }
-
-        finally{
+        } finally{
             if (oos != null)
                 oos.close();
         }

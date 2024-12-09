@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp.Mahreen;
+package oop.firebrigadeoperationsapp.Mahreen2311459;
 
 import java.io.Serializable;
 
@@ -50,7 +50,6 @@ public class Location implements Serializable {
     public static Location fromStringToLocation(String str) {
         switch (str) {
             case "Uttara":
-                // Sample values for latitude, longitude, and response time
                 return new Location(23.8586, 90.4012, 50); // Example coordinates and response time
             case "Dhanmondi":
                 return new Location(23.748, 90.3802, 7);

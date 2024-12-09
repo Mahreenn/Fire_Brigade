@@ -3,14 +3,15 @@ module oop.firebrigadeoperationsapp {
     requires javafx.fxml;
     requires kernel;
     requires layout;
+    requires javafx.graphics;
 
 
     opens oop.firebrigadeoperationsapp to javafx.fxml;
     exports oop.firebrigadeoperationsapp;
-    exports oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
-    opens oop.firebrigadeoperationsapp.Mahreen.Dispatcher to javafx.fxml;
-    exports oop.firebrigadeoperationsapp.Mahreen;
-    opens oop.firebrigadeoperationsapp.Mahreen to javafx.fxml;
-    exports oop.firebrigadeoperationsapp.Mahreen.Firefighter;
-    opens oop.firebrigadeoperationsapp.Mahreen.Firefighter to javafx.fxml;
+    exports oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher;
+    opens oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher to javafx.fxml;
+    exports oop.firebrigadeoperationsapp.Mahreen2311459;
+    opens oop.firebrigadeoperationsapp.Mahreen2311459 to javafx.fxml;
+    exports oop.firebrigadeoperationsapp.Mahreen2311459.Firefighter;
+    opens oop.firebrigadeoperationsapp.Mahreen2311459.Firefighter to javafx.fxml;
 }
