@@ -1,6 +1,8 @@
-package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
+package oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher;
 
-public class Allocation {
+import java.io.Serializable;
+
+public class Allocation implements Serializable {
     public int alertid;
     public int teamno;
 

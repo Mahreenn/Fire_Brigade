@@ -1,10 +1,9 @@
-package oop.firebrigadeoperationsapp.Mahreen.Dispatcher;
+package oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher;
 
-import oop.firebrigadeoperationsapp.Mahreen.Location;
+import oop.firebrigadeoperationsapp.Mahreen2311459.Location;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.time.LocalTime;
 
 public class Alert implements Serializable {
     private static int nextAlertID = 1;
@@ -14,6 +13,7 @@ public class Alert implements Serializable {
     private String areaType; // e.g., Residential, Commercial,
     private Boolean ambulanceReq;
     private Location location;
+    private String status = "Pending";
 
     public Alert(LocalDate dateofAlert, String areaType, Boolean ambulanceReq, Location location) {
         this.alertID = nextAlertID++;
@@ -21,6 +21,13 @@ public class Alert implements Serializable {
         this.areaType = areaType;
         this.ambulanceReq = ambulanceReq;
         this.location = location;
+    }
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public int getAlertID() {
