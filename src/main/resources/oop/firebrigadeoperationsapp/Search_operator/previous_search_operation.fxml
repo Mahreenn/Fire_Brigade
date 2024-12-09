@@ -9,12 +9,14 @@
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
-      <Button layoutX="22.0" layoutY="67.0" mnemonicParsing="false" onAction="#LoadPreviousIncedentButtonClick" text="Load previous incident" />
-      <Button layoutX="180.0" layoutY="67.0" mnemonicParsing="false" onAction="#LoadPreviousSearchOperationButtonClick" text="load previous search operation" />
-      <TableView fx:id="tableviewId" layoutX="22.0" layoutY="100.0" prefHeight="260.0" prefWidth="562.0">
+      <Button layoutX="178.0" layoutY="353.0" mnemonicParsing="false" onAction="#LoadPreviousSearchOperationButtonClick" text="load previous search operation" />
+      <TableView fx:id="tableview" layoutX="19.0" layoutY="70.0" prefHeight="260.0" prefWidth="562.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="C1" />
-          <TableColumn prefWidth="75.0" text="C2" />
+          <TableColumn fx:id="incidentIdColumn" prefWidth="75.0" text="Id " />
+          <TableColumn fx:id="IncidentNameColumn" prefWidth="136.0000228881836" text="Incident name" />
+            <TableColumn fx:id="dateColumn" prefWidth="90.66664123535156" text="date" />
+            <TableColumn fx:id="LocationColumn" prefWidth="84.66668701171875" text="location" />
+            <TableColumn fx:id="DescriptionColoum" prefWidth="175.33328247070312" text="description" />
         </columns>
       </TableView>
       <Button layoutX="521.0" layoutY="366.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="download" />

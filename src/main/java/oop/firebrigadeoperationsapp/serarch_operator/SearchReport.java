@@ -3,19 +3,25 @@ package oop.firebrigadeoperationsapp.serarch_operator;
 import oop.firebrigadeoperationsapp.Mahreen.Location;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SearchReport  {
     String ID, name, description;
     LocalDate date;
-    private Location location;
+    String location;
 
-    public SearchReport(String ID, String name, String description, LocalDate date, Location location) {
+    public SearchReport(String ID, String name, String description, LocalDate date, String location) {
         this.ID = ID;
         this.name = name;
         this.description = description;
         this.date = date;
         this.location = location;
     }
+
+    private static final List<SearchReport> searchReports = new ArrayList<>();
+
+    public static List<SearchReport> getSearchreport() {return searchReports ;}
 
     public String getID() {
         return ID;
@@ -49,11 +55,11 @@ public class SearchReport  {
         this.date = date;
     }
 
-    public Location getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -64,7 +70,7 @@ public class SearchReport  {
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
                 ", date=" + date +
-                ", location=" + location +
+                ", location='" + location + '\'' +
                 '}';
     }
 }
