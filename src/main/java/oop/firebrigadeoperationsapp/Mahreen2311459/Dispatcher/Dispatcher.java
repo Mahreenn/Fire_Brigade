@@ -12,8 +12,8 @@ public class Dispatcher extends Employee implements Serializable {
     public Dispatcher() {
     }
 
-    public Dispatcher(String ID, String contact, String username, String password, LocalDate dob) {
-        super(ID, contact, username, password, dob);
+    public Dispatcher( String contact, String username, String password, LocalDate dob) {
+        super( contact, username, password, dob);
     }
 
     // Method to send an alert
@@ -34,10 +34,9 @@ public class Dispatcher extends Employee implements Serializable {
     }
 
     // Method to copy emergency to incident
-   // public void copyEmergencyToIncident(Emergency emergency) {
+ //   public void copyEmergencyToIncident(Emergency emergency) {
         // Logic to copy emergency details to an incident
-     //   System.out.println("Emergency details copied to new incident: " + emergency);
-   // }
+   //     System.out.println("Emergency details copied to new incident: " + emergency);}
 
     // Method to allocate resources
     public void allocateResource(String resourceType) {
