@@ -4,7 +4,7 @@ import oop.firebrigadeoperationsapp.Mahreen2311459.Location;
 
 import java.time.LocalDate;
 
-public class incidentReport {
+public class IncidentReport {
     String ID, name, description;
     LocalDate date;
     private Location location;
