@@ -6,6 +6,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -13,7 +17,9 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import oop.firebrigadeoperationsapp.AppendableObjectOutputStream;
+import oop.firebrigadeoperationsapp.HelloApplication;
 import oop.firebrigadeoperationsapp.Mahreen2311459.Location;
 
 import java.time.LocalDate;
@@ -422,10 +428,6 @@ public class newDashController {
 
         }
 
-        @FXML
-        void logoutButon(ActionEvent event) {
-
-        }
 
     //workflow8
         @FXML
@@ -440,6 +442,19 @@ public class newDashController {
             manualPANE.setVisible(true);
 
         }
+
+    @FXML
+    void logoutButon(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+
+    }
+
 
 
 

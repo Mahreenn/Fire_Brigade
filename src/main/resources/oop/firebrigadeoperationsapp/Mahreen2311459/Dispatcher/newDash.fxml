@@ -11,6 +11,7 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
@@ -76,9 +77,9 @@
         </VBox>
     </left>
     <center>
-        <AnchorPane prefHeight="616.0" prefWidth="1139.0" BorderPane.alignment="CENTER">
-            <children>
-                <AnchorPane fx:id="viewAlertPANE" layoutX="-274.0" layoutY="-35.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+      <StackPane BorderPane.alignment="CENTER">
+         <children>
+                <AnchorPane fx:id="viewAlertPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                     <children>
                         <TableView fx:id="alertTableview" layoutX="320.0" layoutY="160.0" prefHeight="177.0" prefWidth="625.0">
                             <columns>
@@ -114,7 +115,7 @@
                     </Label>
                     </children>
                 </AnchorPane>
-            <AnchorPane fx:id="assignTeamPANE" layoutX="-264.0" layoutY="-25.0" prefHeight="691.0" prefWidth="1302.0">
+            <AnchorPane fx:id="assignTeamPANE" prefHeight="691.0" prefWidth="1302.0">
                <children>
                   <TableView fx:id="allocationtableview" layoutX="470.0" layoutY="168.0" prefHeight="177.0" prefWidth="544.0">
                      <columns>
@@ -141,7 +142,7 @@
                   </Label>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="updatealertstatusPANE" layoutX="-254.0" layoutY="-15.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="updatealertstatusPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <TableView fx:id="statusTableview" layoutX="305.0" layoutY="278.0" prefHeight="177.0" prefWidth="512.0">
                      <columns>
@@ -167,7 +168,7 @@
                   <Label fx:id="msglblw3" layoutX="258.0" layoutY="471.0" prefHeight="165.0" prefWidth="240.0" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="viewrequestPANE" layoutX="-244.0" layoutY="-5.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="viewrequestPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <TableView fx:id="allocationtableview11" layoutX="260.0" layoutY="136.0" prefHeight="177.0" prefWidth="625.0">
                      <columns>
@@ -196,7 +197,7 @@
                   <Label fx:id="messageLabel" layoutX="308.0" layoutY="427.0" prefHeight="166.0" prefWidth="244.0" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="inventoryrecordPANE" layoutX="-234.0" layoutY="5.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="inventoryrecordPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <TableView fx:id="allocationtableview111" layoutX="260.0" layoutY="136.0" prefHeight="177.0" prefWidth="625.0">
                      <columns>
@@ -223,7 +224,7 @@
                   </Button>
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="sendPANE" layoutX="-223.0" layoutY="82.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="sendPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <Label layoutX="365.0" layoutY="35.0" prefHeight="94.0" prefWidth="327.0" text=" send Inventory " textAlignment="CENTER" textFill="#364844" wrapText="true">
                      <font>
@@ -242,7 +243,7 @@
                   <ComboBox fx:id="sendamountcombobox" layoutX="617.0" layoutY="146.0" prefWidth="150.0" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="generateReportPANE" layoutX="-213.0" layoutY="92.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="generateReportPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <Label layoutX="330.0" prefHeight="94.0" prefWidth="327.0" text="generate report" textAlignment="CENTER" textFill="#364844" wrapText="true">
                      <font>
@@ -257,7 +258,7 @@
                   <Button layoutX="492.0" layoutY="272.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="141.0" text="generate" />
                </children>
             </AnchorPane>
-            <AnchorPane fx:id="manualPANE" layoutX="-203.0" layoutY="102.0" prefHeight="617.0" prefWidth="1059.0" visible="false">
+            <AnchorPane fx:id="manualPANE" prefHeight="617.0" prefWidth="1059.0" visible="false">
                <children>
                   <Label layoutX="330.0" prefHeight="94.0" prefWidth="327.0" text="fire safety manual" textAlignment="CENTER" textFill="#364844" wrapText="true">
                      <font>
@@ -271,7 +272,7 @@
                   <Button layoutX="288.0" layoutY="263.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="83.0" text="make pdf" />
                </children>
             </AnchorPane>
-            </children>
-        </AnchorPane>
+         </children>
+      </StackPane>
     </center>
 </BorderPane>
