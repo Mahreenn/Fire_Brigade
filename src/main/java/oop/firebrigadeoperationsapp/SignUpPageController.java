@@ -9,80 +9,125 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class SignUpPageController {
-    @javafx.fxml.FXML
+    @FXML
     private ComboBox<String> UserBox;
-    @javafx.fxml.FXML
+    @FXML
     private PasswordField SetPassField;
-    @javafx.fxml.FXML
+    @FXML
     private TextField SignUpNameField;
-    @javafx.fxml.FXML
+    @FXML
     private PasswordField ConfirmPassField;
     @FXML
-    private Label massageLabel;
+    private Label messageLabel;
     @FXML
     private DatePicker dobDP;
     @FXML
     private TextField ContactField;
 
-    @FXML
-    public void initialize() {
-        UserBox.getItems().addAll("Dispatcher","Firefighter","EMT","Training officer","Technician ","Battalion Chief (Captain)","Forensic Expert","Search operator");
+    private static final List<Employee> employeeList = new ArrayList<>();
+
+    static {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("employee.bin"))) {
+            while (true) {
+                Employee E = (Employee) ois.readObject();
+                employeeList.add(E);
+            }
+        } catch (IOException | ClassNotFoundException ignored) {
+            // End of file or no file found is acceptable during initialization
+        }
     }
 
-    @javafx.fxml.FXML
-    public void BackToLoginPageButton(ActionEvent event)  throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
-        Parent root = FxmlLoader.load();
+    @FXML
+    public void initialize() {
+        UserBox.getItems().addAll(
+                "Dispatcher",
+                "Firefighter",
+                "EMT",
+                "Training officer",
+                "Technician",
+                "Battalion Chief (Captain)",
+                "Forensic Expert",
+                "Search operator"
+        );
+    }
+
+    @FXML
+    public void BackToLoginPageButton(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+        Parent root = fxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         stage.show();
     }
-    @javafx.fxml.FXML
+
+    @FXML
     public void OnSignUpButtonClick(ActionEvent event) {
-//        create a user  after getting the data from the user and set text in te massageLabel
         try {
-            String username = SignUpNameField.getText();
-            if (username.isBlank() || username.isEmpty()) {
-                massageLabel.setText("Username cannot be empty");
+            String username = SignUpNameField.getText().trim();
+            if (username.isEmpty()) {
+                messageLabel.setText("Username cannot be empty");
                 return;
             }
-            if(username.contains(" ")){
-                massageLabel.setText("Username cannot contain spaces");
+            if (username.contains(" ")) {
+                messageLabel.setText("Username cannot contain spaces");
                 return;
             }
 
-            if (!SetPassField.getText().equals(ConfirmPassField.getText())) {
-                massageLabel.setText("Passwords do not match");
+            String password = SetPassField.getText();
+            if (!password.equals(ConfirmPassField.getText())) {
+                messageLabel.setText("Passwords do not match");
                 return;
             }
-            String password = ConfirmPassField.getText();
-
 
             LocalDate dob = dobDP.getValue();
-            if (dob == null || dob.plusYears(18).isAfter(LocalDate.now())){
-                massageLabel.setText("User must be at least 18 years old!");
-                return;
-            }
-            String contactNo = ContactField.getText();
-            if (contactNo.isBlank() || contactNo.isEmpty()) {
-                massageLabel.setText("Contact number cannot be empty");
+            if (dob == null || dob.plusYears(18).isAfter(LocalDate.now())) {
+                messageLabel.setText("User must be at least 18 years old!");
                 return;
             }
 
-            Employee employee = new Employee( contactNo,username, password,dob );
+            String contactNo = ContactField.getText().trim();
+            if (contactNo.isEmpty()) {
+                messageLabel.setText("Contact number cannot be empty");
+                return;
+            }
 
+            // Check if username already exists
+            for (Employee emp : employeeList) {
+                if (emp.getUsername().equals(username)) {
+                    messageLabel.setText("Username already exists");
+                    return;
+                }
+            }
+
+            Employee employee = new Employee(contactNo, username, password, dob);
+            employeeList.add(employee);
+
+            // Save updated employee list to file
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("employee.bin"))) {
+                for (Employee emp : employeeList) {
+                    oos.writeObject(emp);
+                }
+            }
+
+            messageLabel.setText("Sign up successful!");
+
+        } catch (Exception e) {
+            messageLabel.setText("An error occurred during sign-up. Please try again.");
         }
-        catch (NumberFormatException e){
-            massageLabel.setText("Invalid age!");
-        }
+    }
 
-
-        massageLabel.setText("Sign in successful");
-
+    public static List<Employee> getEmployeeList() {
+        return employeeList;
     }
 }

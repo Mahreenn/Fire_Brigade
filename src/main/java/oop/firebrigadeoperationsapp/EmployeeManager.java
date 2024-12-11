@@ -1,9 +1,6 @@
 package oop.firebrigadeoperationsapp;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.time.LocalDate;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,75 +8,62 @@ public class EmployeeManager {
     private static final List<Employee> employeeList = new ArrayList<>();
     private static Employee loggedInUser = null;
 
-
-
     static {
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new FileInputStream("employee.bin"));
-            while (true){
-                Employee E = (Employee) ois.readObject();
-                employeeList.add(E);
-                System.out.println("Added employee: " + E.toString());
-            }
-        }
-        catch (Exception e){}
-        finally {
-            if (ois != null){
-                try {
-                    ois.close();
-                }
-                catch (Exception e){
-                    throw new RuntimeException(e);
-                }
-            }
-        }
-    }
-
-    public static  List<Employee> getEmployee(){return employeeList;}
-
-    public static Employee checkLogIn(String username, String password) throws IOException, ClassNotFoundException {
-        ObjectInputStream ois = null;
-        Employee E = null;
-
-        try {
-            ois = new ObjectInputStream(new FileInputStream("employee.bin"));
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("employee.bin"))) {
             while (true) {
-                E = (Employee) ois.readObject();
-                if (E.getUsername().equals(username) && E.getPassword().equals(password))
-                    break;
+                try {
+                    Employee E = (Employee) ois.readObject();
+                    employeeList.add(E);
+                } catch (EOFException e) {
+                    break; // End of file reached
+                }
             }
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error loading employees: " + e.getMessage());
         }
-        catch (IOException e){
-            return null;
-        }
-        finally {
-            if (ois != null)
-                ois.close();
-        }
-        return E;
     }
 
+    public static List<Employee> getEmployees() {
+        return new ArrayList<>(employeeList);
+    }
+
+    public static Employee checkLogIn(String username, String password) {
+        for (Employee emp : employeeList) {
+            if (emp.getUsername().equals(username) && emp.getPassword().equals(password)) {
+                loggedInUser = emp;
+                return emp;
+            }
+        }
+        return null;
+    }
 
     public static void deleteEmployee(Employee emp) {
         employeeList.remove(emp);
+        saveEmployeesToFile();
         System.out.println("Employee deleted: " + emp.getUsername());
-        System.out.println("Current number of registered users: " + employeeList.size());
-        System.out.println();
     }
+
     public static void addEmployee(Employee emp) {
         employeeList.add(emp);
-        System.out.println("User added: " + emp.getUsername());
-        System.out.println("Current number of registered users: " + employeeList.size());
-        System.out.println();
+        saveEmployeesToFile();
+        System.out.println("Employee added: " + emp.getUsername());
+    }
+
+    private static void saveEmployeesToFile() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("employee.bin"))) {
+            for (Employee emp : employeeList) {
+                oos.writeObject(emp);
+            }
+        } catch (IOException e) {
+            System.err.println("Error saving employees: " + e.getMessage());
+        }
     }
 
     public static Employee getLoggedInUser() {
         return loggedInUser;
     }
 
-    public static void setLoggedInUser(Employee loggedInUser) {
-        EmployeeManager.loggedInUser = loggedInUser;
+    public static void setLoggedInUser(Employee user) {
+        loggedInUser = user;
     }
-
 }

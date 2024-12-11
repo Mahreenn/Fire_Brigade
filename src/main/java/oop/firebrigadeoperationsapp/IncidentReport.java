@@ -1,6 +1,5 @@
 package oop.firebrigadeoperationsapp;
 
-import oop.firebrigadeoperationsapp.Mahreen.Location;
 import oop.firebrigadeoperationsapp.serarch_operator.SearchReport;
 
 import java.time.LocalDate;

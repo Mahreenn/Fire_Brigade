@@ -7,7 +7,6 @@ import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 
-
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

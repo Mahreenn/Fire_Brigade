@@ -7,13 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
+<?import javafx.scene.control.PasswordField?>
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.LoginPageController">
    <children>
-      <TextField fx:id="passwordTextfield" layoutX="149.0" layoutY="193.0" prefHeight="31.0" prefWidth="319.0" promptText="Password" />
-      <TextField fx:id="UsernameTextfield" layoutX="150.0" layoutY="138.0" prefHeight="31.0" prefWidth="319.0" promptText="Username" />
+      <PasswordField fx:id="PasswordField" layoutX="149.0" layoutY="193.0" prefHeight="31.0" prefWidth="319.0" promptText="Password" />
+      <TextField fx:id="UsernameField" layoutX="150.0" layoutY="138.0" prefHeight="31.0" prefWidth="319.0" promptText="Username" />
       <Button layoutX="275.0" layoutY="259.0" mnemonicParsing="false" onAction="#onLoginButtonClick" text="Log in" />
       <Button layoutX="206.0" layoutY="318.0" mnemonicParsing="false" onAction="#OnSignUpButtonClick" text="Don't have an account? Sign up!" />
-      <Label fx:id="messageLabel" layoutX="196.0" layoutY="24.0" prefHeight="48.0" prefWidth="306.0" />
+      <Label fx:id="LoginMessageLabel" layoutX="196.0" layoutY="24.0" prefHeight="48.0" prefWidth="306.0" />
       <Button layoutX="9.0" layoutY="14.0" mnemonicParsing="false" onAction="#onAlertButtonClick" prefHeight="62.0" prefWidth="166.0" text="Send an Emergency Alert" textAlignment="CENTER" textFill="#ec0d0d" wrapText="true">
          <font>
             <Font size="14.0" />

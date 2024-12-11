@@ -18,146 +18,122 @@ import java.util.List;
 public class LoginPageController {
 
     @FXML
-    private TextField UsernameTextfield;
+    private TextField UsernameField;
 
     @FXML
-    private Label messageLabel;
+    private PasswordField PasswordField;
 
     @FXML
-    private TextField passwordTextfield;
+    private Label LoginMessageLabel;
 
     @FXML
     private ComboBox<String> selectUserCombobox;
 
     @FXML
     public void initialize() {
-        selectUserCombobox.getItems().addAll("Dispatcher","Firefighter","EMT","Training officer","Technician ","Battalion Chief (Captain)","Forensic Expert","Search operator");
+        // Adding roles to the combo box
+        selectUserCombobox.getItems().addAll(
+                "Dispatcher",
+                "Firefighter",
+                "EMT",
+                "Training officer",
+                "Technician",
+                "Battalion Chief (Captain)",
+                "Forensic Expert",
+                "Search operator"
+        );
     }
 
     @FXML
-    void OnSignUpButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("SignUpPage.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
+    public void onLoginButtonClick(ActionEvent event) {
+        // Get input values
+        String username = UsernameField.getText().trim();
+        String password = PasswordField.getText();
+        String selectedRole = selectUserCombobox.getSelectionModel().getSelectedItem();
 
-    }
-
-    @FXML
-    void onAlertButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("recieveAlertfromExternalUser.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-
-    }
-
-    @FXML
-    void onLoginButtonClick(ActionEvent event) throws IOException {
-        if(selectUserCombobox.getSelectionModel().getSelectedItem()==null){
-            messageLabel.setText("Please Select user");
+        // Check for empty fields
+        if (username.isEmpty() || password.isEmpty()) {
+            LoginMessageLabel.setText("Username or Password cannot be empty");
             return;
         }
-        String username = UsernameTextfield.getText();
-        String password = passwordTextfield.getText();
-        String selectedUser = selectUserCombobox.getSelectionModel().getSelectedItem();
+        if (selectedRole == null) {
+            LoginMessageLabel.setText("Please select a role");
+            return;
+        }
 
-        List<Employee> employeeList=EmployeeManager.getEmployee();
-        for(Employee e:employeeList){
-            if(e.getUsername().equals(username) && e.getPassword().equals(password)){
-                EmployeeManager.setLoggedInUser(e);
-                messageLabel.setText("Logged in Successfully");
+        // Authenticate user
+        List<Employee> employeeList = EmployeeManager.getEmployees();
+        for (Employee employee : employeeList) {
+            if (employee.getUsername().equals(username) && employee.getPassword().equals(password)) {
+                // Set the logged-in user
+                EmployeeManager.setLoggedInUser(employee);
+                LoginMessageLabel.setText("Login successful");
 
-                if (selectedUser.equals("Dispatcher")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("newDash.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-
-                }
-                else if(selectedUser.equals("Firefighter")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("FirefighterDashboard.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("EMT")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("Training officer")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("Technician ")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("TechnicianDashBoard.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("Battalion Chief (Captain)")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("BattalionChiefDashbard.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("Forensic Expert")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard_forensic_expert.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-                else if(selectedUser.equals("Search operator")){
-                    FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard_search_operator.fxml"));
-                    Parent root = fxmlLoader.load();
-
-                    Scene scene = new Scene(root);
-
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    return;
-                }
-
-
+                // Open the respective dashboard
+                openDashboard(selectedRole, event);
+                return;
             }
         }
 
+        // If authentication fails
+        LoginMessageLabel.setText("Invalid username or password");
+    }
 
+    private void openDashboard(String role, ActionEvent event) {
+        String fxmlFile = null;
+
+        // Determine the correct dashboard file
+        if (role.equals("Dispatcher")) {
+            fxmlFile = "newDash.fxml";
+        } else if (role.equals("Firefighter")) {
+            fxmlFile = "FirefighterDashboard.fxml";
+        } else if (role.equals("EMT") || role.equals("Training officer")) {
+            fxmlFile = "dashboard.fxml";
+        } else if (role.equals("Technician")) {
+            fxmlFile = "TechnicianDashBoard.fxml";
+        } else if (role.equals("Battalion Chief (Captain)")) {
+            fxmlFile = "BattalionChiefDashbard.fxml";
+        } else if (role.equals("Forensic Expert")) {
+            fxmlFile = "dashboard_forensic_expert.fxml";
+        } else if (role.equals("Search operator")) {
+            fxmlFile = "Search_operator/dashboard_search_operator.fxml";
+        }
+
+        if (fxmlFile != null) {
+            try {
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
+                Parent root = fxmlLoader.load();
+                Scene scene = new Scene(root);
+
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(scene);
+                stage.show();
+            } catch (IOException e) {
+                LoginMessageLabel.setText("Error loading the dashboard.");
+            }
+        } else {
+            LoginMessageLabel.setText("Dashboard for this role is not implemented yet.");
+        }
+    }
+
+
+
+    public void OnSignUpButtonClick(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SignUpPage.fxml"));
+            Parent root = fxmlLoader.load();
+            Scene scene = new Scene(root);
+
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            LoginMessageLabel.setText("Error loading the sign-up page.");
+        }
 
     }
 
+    public void onAlertButtonClick(ActionEvent event) {
+
+    }
 }
