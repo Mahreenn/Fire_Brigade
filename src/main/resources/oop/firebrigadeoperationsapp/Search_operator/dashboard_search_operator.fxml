@@ -3,15 +3,20 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
    <children>
-      <Label layoutX="35.0" layoutY="33.0" prefHeight="33.0" prefWidth="317.0" text="Welcome to search operator deshboard" />
+      <Label layoutX="56.0" layoutY="34.0" prefHeight="33.0" prefWidth="413.0" text="Welcome to search operator deshboard">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
       <Button layoutX="527.0" layoutY="21.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
-      <Button layoutX="45.0" layoutY="88.0" mnemonicParsing="false" onAction="#OnProfileButtonClick" prefHeight="40.0" prefWidth="157.0" text="profile" />
-      <Button layoutX="45.0" layoutY="139.0" mnemonicParsing="false" onAction="#OnEmergencyButtonClick" prefHeight="40.0" prefWidth="157.0" text="emergency" />
-      <Button layoutX="45.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnPreviousSearchOperationButtonClick" prefHeight="40.0" prefWidth="157.0" text="previous search operation " />
-      <Button layoutX="45.0" layoutY="242.0" mnemonicParsing="false" onAction="#OnReportSubmissionButtonClick" prefHeight="40.0" prefWidth="157.0" text="report submission" />
-      <Button layoutX="45.0" layoutY="292.0" mnemonicParsing="false" onAction="#OnCreateSearchTeamDashboardButtonClick" prefHeight="40.0" prefWidth="157.0" text="create search team" />
+      <Button layoutX="86.0" layoutY="145.0" mnemonicParsing="false" onAction="#OnProfileButtonClick" prefHeight="40.0" prefWidth="157.0" text="profile" />
+      <Button layoutX="289.0" layoutY="145.0" mnemonicParsing="false" onAction="#OnEmergencyButtonClick" prefHeight="40.0" prefWidth="157.0" text="emergency" />
+      <Button layoutX="86.0" layoutY="222.0" mnemonicParsing="false" onAction="#OnPreviousSearchOperationButtonClick" prefHeight="40.0" prefWidth="157.0" text="previous search operation " />
+      <Button layoutX="86.0" layoutY="283.0" mnemonicParsing="false" onAction="#OnReportSubmissionButtonClick" prefHeight="40.0" prefWidth="157.0" text="report submission" />
+      <Button layoutX="289.0" layoutY="283.0" mnemonicParsing="false" onAction="#OnCreateSearchTeamDashboardButtonClick" prefHeight="40.0" prefWidth="157.0" text="create search team" />
+      <Button layoutX="289.0" layoutY="222.0" mnemonicParsing="false" onAction="#OnPreviousIncidentButtonClick" prefHeight="40.0" prefWidth="157.0" text="previous incident" />
    </children>
 </AnchorPane>

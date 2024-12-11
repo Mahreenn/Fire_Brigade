@@ -9,8 +9,7 @@
             fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
     <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back"/>
     <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out"/>
-    <Button layoutX="178.0" layoutY="353.0" mnemonicParsing="false" onAction="#LoadPreviousSearchOperationButtonClick"
-            text="load previous search operation"/>
+
     <TableView fx:id="tableview" layoutX="19.0" layoutY="70.0" prefHeight="260.0" prefWidth="562.0">
       <columns>
           <TableColumn fx:id="incidentIdColumn" prefWidth="75.0" text="Incident ID"/>

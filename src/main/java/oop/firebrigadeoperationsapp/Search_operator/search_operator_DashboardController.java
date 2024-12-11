@@ -41,7 +41,7 @@ public class search_operator_DashboardController {
 
 public void initialize() {
     try {
-        System.out.println("Initializing TableView...");
+//        System.out.println("Initializing TableView...");
 
         incidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
         IncidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
@@ -186,11 +186,7 @@ public void initialize() {
         }
     }
 
-    @FXML
-    public void LoadPreviousSearchOperationButtonClick(ActionEvent actionEvent) {
 
-
-    }
 
     @FXML
     public void OnBackButtonClick(ActionEvent event) throws IOException {
@@ -226,4 +222,21 @@ public void initialize() {
 
 
     }
+
+    @FXML
+    public void OnPreviousIncidentButtonClick(ActionEvent event)throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PreviousIncident.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        return;
+
+
+
+    }
+
 }
