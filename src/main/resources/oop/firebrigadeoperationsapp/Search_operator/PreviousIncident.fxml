@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.PreviousIncident">
+   <children>
+      <TableView fx:id="Incidenttableview" layoutX="24.0" layoutY="54.0" prefHeight="303.0" prefWidth="580.0">
+         <columns>
+            <TableColumn fx:id="IncidentIdColumn" prefWidth="59.33331298828125" text="Id" />
+            <TableColumn fx:id="incidentNameColumn" prefWidth="182.00003051757812" text="Incident name" />
+            <TableColumn fx:id="IncidentLocationColumn" prefWidth="84.66668701171875" text="location" />
+            <TableColumn fx:id="IncidentDescriptionColumn" prefWidth="168.0" text="description" />
+            <TableColumn fx:id="IncidentDateColumn" prefWidth="84.66668701171875" text="Date" />
+         </columns>
+      </TableView>
+      <Button layoutX="24.0" layoutY="14.0" mnemonicParsing="false" onAction="#onbackbuttonClick" text="back" />
+      <Button layoutX="538.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnlogOutButtonClick" text="log out" />
+      <Button layoutX="528.0" layoutY="363.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="Download" />
+      <Label layoutX="172.0" layoutY="3.0" text="Previous Incident">
+         <font>
+            <Font size="32.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
