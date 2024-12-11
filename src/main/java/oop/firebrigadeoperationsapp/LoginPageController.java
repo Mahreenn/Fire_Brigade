@@ -45,7 +45,7 @@ public class LoginPageController {
     }
 
     @FXML
-    public void onLoginButtonClick(ActionEvent event) {
+    public void onLoginButtonClick(ActionEvent event) throws IOException {
         // Get input values
         String username = UsernameField.getText().trim();
         String password = PasswordField.getText();
@@ -79,24 +79,25 @@ public class LoginPageController {
         LoginMessageLabel.setText("Invalid username or password");
     }
 
-    private void openDashboard(String role, ActionEvent event) {
+    private void openDashboard(String role, ActionEvent event) throws IOException {
         String fxmlFile = null;
 
         // Determine the correct dashboard file
         if (role.equals("Dispatcher")) {
-            fxmlFile = "newDash.fxml";
+            fxmlFile = "Mahreen2311459/Dispatcher/newDash.fxml";
         } else if (role.equals("Firefighter")) {
-            fxmlFile = "FirefighterDashboard.fxml";
+            fxmlFile = "Mahreen2311459/Firefighter/FirefighterDashboard.fxml";
         } else if (role.equals("EMT") || role.equals("Training officer")) {
             fxmlFile = "dashboard.fxml";
         } else if (role.equals("Technician")) {
-            fxmlFile = "TechnicianDashBoard.fxml";
+            fxmlFile = "Technician/TechnicianDashBoard.fxml";
         } else if (role.equals("Battalion Chief (Captain)")) {
-            fxmlFile = "BattalionChiefDashbard.fxml";
+            fxmlFile = "BattalionChief/BattalionChiefDashbard.fxml";
         } else if (role.equals("Forensic Expert")) {
-            fxmlFile = "dashboard_forensic_expert.fxml";
+            fxmlFile = "forensic_expert/dashboard_forensic_expert.fxml";
         } else if (role.equals("Search operator")) {
             fxmlFile = "Search_operator/dashboard_search_operator.fxml";
+            System.out.println(getClass().getResource(fxmlFile));
         }
 
         if (fxmlFile != null) {
@@ -109,6 +110,7 @@ public class LoginPageController {
                 stage.setScene(scene);
                 stage.show();
             } catch (IOException e) {
+                e.printStackTrace();
                 LoginMessageLabel.setText("Error loading the dashboard.");
             }
         } else {

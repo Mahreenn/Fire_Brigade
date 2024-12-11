@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.serarch_operator.search_operator_DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
    <children>
       <Label layoutX="35.0" layoutY="33.0" prefHeight="33.0" prefWidth="317.0" text="Welcome to search operator deshboard" />
       <Button layoutX="527.0" layoutY="21.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />

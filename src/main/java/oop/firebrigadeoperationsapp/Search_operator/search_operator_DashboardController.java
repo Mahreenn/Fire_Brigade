@@ -1,11 +1,10 @@
-package oop.firebrigadeoperationsapp.serarch_operator;
+package oop.firebrigadeoperationsapp.Search_operator;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.*;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,11 +20,8 @@ import javafx.stage.Stage;
 
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.time.LocalDate;
-
-import static com.itextpdf.kernel.pdf.PdfName.Document;
 
 public class search_operator_DashboardController {
 
@@ -43,20 +39,34 @@ public class search_operator_DashboardController {
     @FXML
     private TableColumn<SearchReport,LocalDate> dateColumn;
 
-    public void initialize() {
-        incidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("IncidentId"));
-        IncidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("IncidentName"));
-        LocationColumn.setCellValueFactory(new PropertyValueFactory<>("Location"));
-        DescriptionColoum.setCellValueFactory(new PropertyValueFactory<>("Description"));
-        dateColumn.setCellValueFactory(new PropertyValueFactory<>("Date"));
+public void initialize() {
+    try {
+        System.out.println("Initializing TableView...");
+
+        incidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+        IncidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        LocationColumn.setCellValueFactory(new PropertyValueFactory<>("location"));
+        DescriptionColoum.setCellValueFactory(new PropertyValueFactory<>("description"));
+        dateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+
+        if (SearchReport.getSearchreport().isEmpty()) {
+            System.out.println("Adding test data...");
+            SearchReport.getSearchreport().add(new SearchReport("1", "Fire in uttora", "Major fire incident", LocalDate.now(), "Downtown"));
+            SearchReport.getSearchreport().add(new SearchReport("2", "fire in basundhara ", "Rescued trapped workers", LocalDate.now().minusDays(1), "Suburbs"));
+        }
 
         tableview.getItems().addAll(SearchReport.getSearchreport());
+        System.out.println("Initialization completed.");
+    } catch (Exception e) {
+        e.printStackTrace();
     }
+}
+
 
     @FXML
     public void OnProfileButtonClick(ActionEvent event) throws IOException {
         //        scence switch to Profile.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Profile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Profile.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -91,7 +101,7 @@ public class search_operator_DashboardController {
     @javafx.fxml.FXML
     public void OnLogOutButtonClick(ActionEvent event) throws IOException {
         //        scence switch to LoginPage.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("LoginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -105,7 +115,7 @@ public class search_operator_DashboardController {
     @FXML
     public void OnEmergencyButtonClick(ActionEvent event) throws IOException {
         //        scence switch to emergency_searchOperator.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("emergency_searchOperator.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Search_operator/emergency_searchOperator.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

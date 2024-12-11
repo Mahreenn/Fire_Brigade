@@ -1,6 +1,6 @@
-package oop.firebrigadeoperationsapp.serarch_operator;
+package oop.firebrigadeoperationsapp.Search_operator;
 
-import oop.firebrigadeoperationsapp.Mahreen.Location;
+
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -18,6 +18,7 @@ public class SearchReport  {
         this.date = date;
         this.location = location;
     }
+
 
     private static final List<SearchReport> searchReports = new ArrayList<>();
 
