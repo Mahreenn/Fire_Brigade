@@ -3,10 +3,18 @@ package oop.firebrigadeoperationsapp.Mahreen2311459.Firefighter;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import oop.firebrigadeoperationsapp.HelloApplication;
 import oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher.Allocation;
+
+import java.io.IOException;
 
 public class FirefighterDashboardController {
 
@@ -41,7 +49,14 @@ public class FirefighterDashboardController {
         }
     }
     @FXML
-    void logoutButon(ActionEvent event) {
+    void logoutButon(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+        Parent root = fxmlLoader.load();
+
+        Scene scene = new Scene(root);
+
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
 
     }
 

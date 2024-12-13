@@ -4,6 +4,7 @@ module oop.firebrigadeoperationsapp {
     requires kernel;
     requires layout;
     requires javafx.graphics;
+    requires java.desktop;
 
 
     opens oop.firebrigadeoperationsapp to javafx.fxml;
