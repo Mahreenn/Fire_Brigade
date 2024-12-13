@@ -2,14 +2,19 @@ package oop.firebrigadeoperationsapp.Search_operator;
 
 
 
+import oop.firebrigadeoperationsapp.Forensic_expert.IncidentReport;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class SearchReport  {
-    String ID, name, description;
-    LocalDate date;
-    String location;
+    private String ID, name, description;
+    private LocalDate date;
+    private String location;
 
     public SearchReport(String ID, String name, String description, LocalDate date, String location) {
         this.ID = ID;
@@ -21,6 +26,17 @@ public class SearchReport  {
 
 
     private static final List<SearchReport> searchReports = new ArrayList<>();
+
+    static {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/oop/firebrigadeoperationsapp/Search_operator/SearchReport.bin"))) {
+            while (true) {
+                SearchReport s = (SearchReport) ois.readObject();
+                searchReports.add(s);
+            }
+        } catch (IOException | ClassNotFoundException ignored) {
+            // End of file or no file found is acceptable during initialization
+        }
+    }
 
     public static List<SearchReport> getSearchreport() {return searchReports ;}
 

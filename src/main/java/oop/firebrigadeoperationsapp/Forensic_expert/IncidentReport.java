@@ -1,5 +1,10 @@
 package oop.firebrigadeoperationsapp.Forensic_expert;
 
+import oop.firebrigadeoperationsapp.Employee;
+
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +23,18 @@ public class IncidentReport {
     }
     private static final List<IncidentReport> incidentReports = new ArrayList<>();
 
-    public static List<IncidentReport> getincidentReports() {return incidentReports ;}
+    static {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("IncidentReport.bin"))) {
+            while (true) {
+                IncidentReport R = (IncidentReport) ois.readObject();
+                incidentReports.add(R);
+            }
+        } catch (IOException | ClassNotFoundException ignored) {
+            // End of file or no file found is acceptable during initialization
+        }
+    }
+
+    public static List<IncidentReport> getIncidentReports() {return incidentReports ;}
 
     public String getID() {
         return ID;

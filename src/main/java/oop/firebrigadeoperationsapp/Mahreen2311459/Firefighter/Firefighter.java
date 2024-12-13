@@ -13,9 +13,9 @@ public class Firefighter extends Employee implements Serializable {
         this.firefighterTeamNO = firefighterTeamNO;
     }
 
-    public Firefighter(int firefighterTeamNO) {
-        this.firefighterTeamNO = firefighterTeamNO;
-    }
+//    public Firefighter(int firefighterTeamNO) {
+//        this.firefighterTeamNO = firefighterTeamNO;
+//    }
 
     public int getFirefighterTeamNO() {
         return firefighterTeamNO;

@@ -16,5 +16,7 @@
       <Button layoutX="35.0" layoutY="100.0" mnemonicParsing="false" onAction="#OnProfileButtonClick" prefHeight="66.0" prefWidth="175.0" text="Profile" AnchorPane.leftAnchor="35.0" AnchorPane.topAnchor="100.0" />
       <Button layoutX="35.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnPreviousIncidentButtonClick" prefHeight="66.0" prefWidth="175.0" text="Preavious incident" />
       <Button layoutX="35.0" layoutY="289.0" mnemonicParsing="false" onAction="#OnReportSubmissionButtonClick" prefHeight="66.0" prefWidth="175.0" text="Report submittion " AnchorPane.bottomAnchor="45.0" />
+      <Button layoutX="300.0" layoutY="100.0" mnemonicParsing="false" onAction="#OnForensicReportButtonClick" prefHeight="66.0" prefWidth="175.0" text="Forensic report" />
+      <Button layoutX="300.0" layoutY="188.0" mnemonicParsing="false" onAction="#OnEmergencyButtonClick" prefHeight="66.0" prefWidth="175.0" text="emergency" />
    </children>
 </AnchorPane>

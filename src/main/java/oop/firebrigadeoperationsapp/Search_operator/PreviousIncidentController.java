@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp.Forensic_expert;
+package oop.firebrigadeoperationsapp.Search_operator;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -6,72 +6,46 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.*;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import oop.firebrigadeoperationsapp.Forensic_expert.IncidentReport;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.time.LocalDate;
 
-
-public class forensic_DashboardController {
-
-
-
-    @FXML
-    private DatePicker IncidentDate;
-
-    @FXML
-    private TextField IncidentLocationField;
-
-    @FXML
-    private TextField IncidentNamefield;
-
-    @FXML
-    private TextField IncidentNoField;
-
-    @FXML
-    private TextArea descriptionField;
-
-    @FXML
-    private Label massageLabel;
-
-
-
-
-    @FXML
+public class PreviousIncidentController
+{
+    @javafx.fxml.FXML
     private TableColumn<IncidentReport,String> IncidentLocationColumn;
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<IncidentReport,String> IncidentDescriptionColumn;
-    @FXML
+    @javafx.fxml.FXML
     private TableView<IncidentReport> Incidenttableview;
-    @FXML
+    @javafx.fxml.FXML
     private TableColumn<IncidentReport,String> IncidentIdColumn;
-    @FXML
-    private TableColumn<IncidentReport,LocalDate> IncidentDateColumn;
-    @FXML
+    @javafx.fxml.FXML
+    private TableColumn<IncidentReport, LocalDate> IncidentDateColumn;
+    @javafx.fxml.FXML
     private TableColumn<IncidentReport,String> incidentNameColumn;
 
-    @FXML
+    @javafx.fxml.FXML
     public void initialize() {
         try {
-            // Initializing TableView columns
             IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
-            incidentNameColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("name"));
-            IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("location"));
-            IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("description"));
-            IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,LocalDate>("date"));
+            incidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+            IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-            // Check and populate the table with data
+
             if (IncidentReport.getIncidentReports().isEmpty()) {
                 System.out.println("Adding test data...");
                 IncidentReport.getIncidentReports().add(new IncidentReport("1", "Fire in Uttara", "A major fire broke out in a residential building.", LocalDate.now(), "Uttara"));
@@ -96,76 +70,22 @@ public class forensic_DashboardController {
                 IncidentReport.getIncidentReports().add(new IncidentReport("20", "Gas Explosion in Savar", "A gas cylinder explosion injured several workers.", LocalDate.now().minusWeeks(1), "Savar"));
             }
 
+            Incidenttableview.getItems().setAll(IncidentReport.getIncidentReports());
 
-            // Adding data to the TableView
-            Incidenttableview.getItems().addAll(IncidentReport.getIncidentReports());
-            System.out.println("Initialization completed.");
-        } catch (Exception e) {
+        }catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-
-    @FXML
-    public void onBackButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("dashboard_forensic_expert.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
     @javafx.fxml.FXML
-    public void LogOutButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-
-    //    forensic_Dashboard Fxml Button
-
-    @FXML
-    public void OnProfileButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Profile.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-    }
-
-
-     // forensic_Dashboard Fxml Button
-    @FXML
-    public void OnPreviousIncidentButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("PreviousIncident.fxml"));
-        Parent root = FxmlLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
-
-
-    }
-
-
-
-//    for downloading pdf in previous Incident Fxml
-    @FXML
-    public void OnDownloadButtonClick(ActionEvent Event) {
+    public void OnDownloadButtonClick(ActionEvent actionEvent) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("PDF Documents", "*.pdf")
         );
 
         // Show save dialog
-        Stage stage = (Stage) ((Node) Event.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
         File selectedFile = fileChooser.showSaveDialog(stage);
 
         if (selectedFile == null) {
@@ -213,52 +133,9 @@ public class forensic_DashboardController {
         }
     }
 
-
-
-    //for submitting report in Forensic report submit FXML
-    @FXML
-    public void OnReportSubmitButtonClick(ActionEvent event) {
-        try {
-
-            if (IncidentNoField.getText().isEmpty() || IncidentNamefield.getText().isEmpty() ||
-                    descriptionField.getText().isEmpty() || IncidentDate.getValue() == null ||
-                    IncidentLocationField.getText().isEmpty()) {
-                massageLabel.setText("Please fill in all fields.");
-                return;
-            }
-
-
-            ForensicReport newReport = new ForensicReport(
-                    IncidentNoField.getText(),
-                    IncidentNamefield.getText(),
-                    descriptionField.getText(),
-                    IncidentLocationField.getText(),
-                    IncidentDate.getValue()
-            );
-
-
-            ForensicReport.getForensicreport().add(newReport);
-
-
-            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("ForensicReport.bin"))) {
-                oos.writeObject(ForensicReport.getForensicreport());
-            }
-
-
-            massageLabel.setText("Successfully submitted the forensic report.");
-        } catch (IOException e) {
-            massageLabel.setText("Error saving report: " + e.getMessage());
-        } catch (Exception e) {
-            massageLabel.setText("An unexpected error occurred: " + e.getMessage());
-        }
-
-    }
-
-
-    // forensic_Dashboard Fxml Button
-    @FXML
-    public void OnReportSubmissionButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Forensic_expert/forensic report submit.fxml"));
+    @javafx.fxml.FXML
+    public void OnBackButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard_search_operator.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -268,13 +145,9 @@ public class forensic_DashboardController {
         return;
     }
 
-
-
-
-
-    @FXML
-    public void OnForensicReportButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Forensic_expert/preiousForensicReport.fxml"));
+    @javafx.fxml.FXML
+    public void OnLogOutButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
@@ -282,18 +155,5 @@ public class forensic_DashboardController {
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
         return;
-
-    }
-    @FXML
-    public void OnEmergencyButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Search_operator/emergency_searchOperator.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        return;
-
     }
 }
