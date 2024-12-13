@@ -11,6 +11,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
@@ -126,7 +129,7 @@ public class newDashController {
         private Label msglblw6;
 
         @FXML
-        private BarChart<String, Integer> barchart;
+        private BarChart<String, Number> barchart;
 
 
         //workflow 7
@@ -333,9 +336,7 @@ public class newDashController {
     @FXML
     void loadalertsbutton(ActionEvent event) throws IOException {
         ObjectInputStream ois = null;
-        try{
-            ois = new ObjectInputStream(new FileInputStream(new File("alerts.bin")));
-        //    ois = new ObjectInputStream(new FileInputStream("alerts.bin"));
+        try{ ois = new ObjectInputStream(new FileInputStream("alerts.bin"));
             statusTableview.getItems().clear();
             while(true){
                 Alert a = (Alert)ois.readObject();
@@ -425,10 +426,29 @@ public class newDashController {
     public void generateChartbutton(ActionEvent event) {
         ArrayList<Inventory> inventoryList = Inventory.getInventoryList();
 
+        CategoryAxis xAxis = new CategoryAxis();
+        NumberAxis yAxis = new NumberAxis();
+        xAxis.setLabel("Equipment");
+        yAxis.setLabel("Quantity");
+
+        barchart = new BarChart<>(xAxis, yAxis);
+        barchart.setTitle("Inventory Chart");
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        series.setName("Inventory Equipments");
+
+        for (Inventory i : inventoryList) {
+            String equipment = i.getEquipmentname();
+            int quantity = i.getAmount();
+            series.getData().add(new XYChart.Data<>(equipment, quantity));
+        }
+
+        barchart.getData().add(series);
+
+        chartPANE.getChildren().clear();
+        chartPANE.getChildren().add(barchart);
+
     }
-
-
-
 
 
 

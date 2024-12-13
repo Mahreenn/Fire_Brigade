@@ -50,7 +50,7 @@ public class FirefighterDashboardController {
     }
     @FXML
     void logoutButon(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("LoginPage.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("login.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
