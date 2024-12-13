@@ -64,14 +64,13 @@ public class forensic_DashboardController {
     @FXML
     public void initialize() {
         try {
-            // Initializing TableView columns
-            IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+            IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("ID"));
             incidentNameColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("name"));
             IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("location"));
             IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("description"));
             IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,LocalDate>("date"));
 
-            // Check and populate the table with data
+
             if (IncidentReport.getIncidentReports().isEmpty()) {
                 System.out.println("Adding test data...");
                 IncidentReport.getIncidentReports().add(new IncidentReport("1", "Fire in Uttara", "A major fire broke out in a residential building.", LocalDate.now(), "Uttara"));
