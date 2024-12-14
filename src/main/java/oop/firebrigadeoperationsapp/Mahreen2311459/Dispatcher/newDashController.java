@@ -123,6 +123,16 @@ public class newDashController {
         @FXML
         private TableColumn<Alert, Integer> alrtTC;
 
+        //workflow5
+        @FXML
+        private TableColumn<Inventory, String> equipmenttc;
+        @FXML
+        private TableView<Inventory> inventorytableview;
+
+        @FXML
+        private TableColumn<Inventory, Integer> amounttc;
+
+
         //workflow 6
         @FXML
         private Label msglblw6;
@@ -151,22 +161,12 @@ public class newDashController {
 
 
 
-
-
-
         @FXML
         private Label msglblw4;
 
         @FXML
         private Label msglblw5;
 
-
-
-        @FXML
-        private ComboBox<?> sendamountcombobox;
-
-        @FXML
-        private ComboBox<?> sendequipcombobox;
 
 
 
@@ -249,9 +249,8 @@ public class newDashController {
         void createfilebutton(ActionEvent event)throws IOException {
                 ObjectOutputStream oos = null;
                 if (! alertTableview.getItems().isEmpty()) {
-
                         try {
-                                oos = new AppendableObjectOutputStream(new FileOutputStream("alerts.bin", true));
+                                oos = new ObjectOutputStream(new FileOutputStream("alerts.bin"));
                                 for(Alert a:alertTableview.getItems()){
                                         oos.writeObject(a);
                                 }
@@ -263,7 +262,7 @@ public class newDashController {
                         }
                         finally {
                                 if (oos!=null){
-                                        oos.close();
+                                    oos.close();
                                 }
                         }
                 }else {
@@ -296,14 +295,12 @@ public class newDashController {
             } else {
                 msglblw2.setText("Please select a team and alert ID.");
             }
-
             if (allocationtableview.getItems().isEmpty()) {
-                msglblw2.setText(" ");
                 msglblw2.setText("no allocations made");
             } else {
                 ObjectOutputStream oos = null;
                 try {
-                    oos = new AppendableObjectOutputStream(new FileOutputStream("Allocations.bin"));
+                    oos = new ObjectOutputStream(new FileOutputStream("Allocations.bin"));
                     for (Allocation a : allocationtableview.getItems()) {
                         oos.writeObject(a);
                     }
@@ -338,15 +335,17 @@ public class newDashController {
         try{ ois = new ObjectInputStream(new FileInputStream("alerts.bin"));
             statusTableview.getItems().clear();
             while(true){
-                Alert a = (Alert)ois.readObject();
-                alertList.add(a);
+                try {
+                    Alert a = (Alert) ois.readObject();
+                    statusTableview.getItems().add(a);
+                }
+                catch (EOFException e){
+                    msglblw3.setText("success");
+                    break;
+                }
             }
         }
-        catch(EOFException e){
-            statusTableview.getItems().clear();
-            statusTableview.getItems().addAll(alertList);
-            msglblw3.setText("success");
-        }
+       // catch(EOFException e){statusTableview.getItems().addAll(alertList);}
         catch(ClassNotFoundException e){
             msglblw3.setText("Invalid file format!");
         }
@@ -406,6 +405,10 @@ public class newDashController {
         chartPANE.setVisible(false);
         generateReportPANE.setVisible(false);
         manualPANE.setVisible(false);
+
+    }
+    @FXML
+    public void displayavailableinventory(ActionEvent event) {
 
     }
 
@@ -574,16 +577,12 @@ public class newDashController {
 
         @FXML
         void pdfmanualbutton(ActionEvent event) throws FileNotFoundException {
-            msglblw8.setText("");
-
-            // FileChooser for selecting the .txt file
+            msglblw8.setText("pdf button clicked");
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("files", "*.txt"));
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             File selectedFile = fileChooser.showOpenDialog(stage);
-
             if (selectedFile == null) {
                 return;
             }
@@ -605,7 +604,6 @@ public class newDashController {
                 while ((line = reader.readLine()) != null) {
                     document.add(new Paragraph(line));
                 }
-
                 reader.close();
                 document.close();
                 msglblw8.setText("PDF created successfully at " + saveFile.getAbsolutePath());

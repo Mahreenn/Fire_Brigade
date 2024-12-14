@@ -1,1 +1,2 @@
 this is DESTINATION  file
+this is source  text.

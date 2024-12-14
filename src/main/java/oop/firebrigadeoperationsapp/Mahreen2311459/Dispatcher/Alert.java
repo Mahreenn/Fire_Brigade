@@ -2,8 +2,10 @@ package oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher;
 
 import oop.firebrigadeoperationsapp.Mahreen2311459.Location;
 
-import java.io.Serializable;
+import java.io.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Alert implements Serializable {
     private static int nextAlertID = 1;
@@ -70,4 +72,33 @@ public class Alert implements Serializable {
     public void setLocation(Location location) {
         this.location = location;
     }
+
+
+    static List<Alert> readAlertsFromFile() {
+        List<Alert> alertsList = new ArrayList<>();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("alerts.bin"))) {
+            alertsList = (List<Alert>) ois.readObject();
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return alertsList;
+    }
+
+    static void writeAlertsToFile(List<Alert> alertsList) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("alerts.bin"))) {
+            oos.writeObject(alertsList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+     static Alert findAlertById(List<Alert> alertsList, int id) {
+        for (Alert alert : alertsList) {
+            if (alert.getAlertID() == id) {
+                return alert;
+            }
+        }
+        return null;
+    }
+
 }
