@@ -29,7 +29,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import static oop.firebrigadeoperationsapp.Mahreen2311459.Location.fromStringToLocation;
 
@@ -450,8 +449,6 @@ public class newDashController {
 
     }
 
-
-
     //workflow7
         @FXML
         public void generateincidentreportbutton(ActionEvent event) {
@@ -489,7 +486,7 @@ public class newDashController {
         String destFilename = desttf.getText();
 
         if (srcFilename.isEmpty() || destFilename.isEmpty()) {
-            msglblw7.setText("Source or Destination file path is empty!");
+            msglblw7.setText("Source or Destination path is empty!");
             return;
         }
 
@@ -522,11 +519,6 @@ public class newDashController {
                 }
         }
     }
-
-
-
-
-
 
     //workflow8
         @FXML
@@ -565,7 +557,7 @@ public class newDashController {
 
         }
         @FXML
-        void saveedittedmanualbuttom(ActionEvent event) throws IOException {
+        void saveedittedmanualbutton(ActionEvent event) throws IOException {
             msglblw8.setText("");
             try (BufferedWriter bw = new BufferedWriter(new FileWriter("manual.txt", true))) {
                 String textappended = manualtextarea.getText();
@@ -582,7 +574,6 @@ public class newDashController {
 
         @FXML
         void pdfmanualbutton(ActionEvent event) throws FileNotFoundException {
-            // Clear any previous messages
             msglblw8.setText("");
 
             // FileChooser for selecting the .txt file
@@ -604,33 +595,25 @@ public class newDashController {
             }
 
             try {
-                // Create the PDF writer and document
                 PdfWriter writer = new PdfWriter(saveFile);
                 PdfDocument pdf = new PdfDocument(writer);
                 Document document = new Document(pdf);
 
-                // Read the .txt file and add each line to the PDF
                 BufferedReader reader = new BufferedReader(new FileReader(selectedFile));
                 String line;
 
-                // Read each line from the .txt file and add it as a paragraph to the PDF
                 while ((line = reader.readLine()) != null) {
-                    document.add(new Paragraph(line));  // Add each line of text as a paragraph
+                    document.add(new Paragraph(line));
                 }
 
-                reader.close();  // Close the reader after reading the file
-                document.close();  // Close the document to finish writing the PDF
-
-                // Set success message with the path of the saved PDF
+                reader.close();
+                document.close();
                 msglblw8.setText("PDF created successfully at " + saveFile.getAbsolutePath());
 
             } catch (IOException e) {
-                // In case of an error, show the error message
                 msglblw8.setText("Error while creating PDF: " + e.getMessage());
             }
         }
-
-
 
         @FXML
         void logoutButon(ActionEvent event) throws IOException {
@@ -645,7 +628,7 @@ public class newDashController {
     }
 
     public void loaddatabutton(ActionEvent event) {
-        // Your code to handle the event
+
     }
 
 
