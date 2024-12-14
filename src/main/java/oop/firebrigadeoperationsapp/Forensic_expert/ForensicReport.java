@@ -1,74 +1,90 @@
 package oop.firebrigadeoperationsapp.Forensic_expert;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForensicReport {
-    String ID, name, description;
-    LocalDate date;
-    String location;
+public class ForensicReport implements Serializable {
+    private String ForensicReportID, ForensicReportname, ForensicReportdescription;
+    private String IncidentLocation;
+    private LocalDate IncidentDate;
 
-    public ForensicReport(String ID, String name, String description, LocalDate date, String location) {
-        this.ID = ID;
-        this.name = name;
-        this.description = description;
-        this.date = date;
-        this.location = location;
+
+    public ForensicReport(String forensicReportID, String forensicReportname, String forensicReportdescription, String incidentLocation, LocalDate incidentDate) {
+        ForensicReportID = forensicReportID;
+        ForensicReportname = forensicReportname;
+        ForensicReportdescription = forensicReportdescription;
+        IncidentLocation = incidentLocation;
+        IncidentDate = incidentDate;
     }
 
     private static final List<ForensicReport> forensicReports = new ArrayList<>();
 
+    static {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/oop/firebrigadeoperationsapp/Forensic_expert/ForensicReport.bin"))) {
+            while (true) {
+                ForensicReport R = (ForensicReport) ois.readObject();
+                forensicReports.add(R);
+            }
+        } catch (IOException | ClassNotFoundException ignored) {
+            // End of file or no file found is acceptable during initialization
+        }
+    }
+
     public static List<ForensicReport> getForensicreport() {return forensicReports ;}
 
-    public String getID() {
-        return ID;
+    public String getForensicReportID() {
+        return ForensicReportID;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setForensicReportID(String forensicReportID) {
+        ForensicReportID = forensicReportID;
     }
 
-    public String getName() {
-        return name;
+    public String getForensicReportname() {
+        return ForensicReportname;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setForensicReportname(String forensicReportname) {
+        ForensicReportname = forensicReportname;
     }
 
-    public String getDescription() {
-        return description;
+    public String getForensicReportdescription() {
+        return ForensicReportdescription;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setForensicReportdescription(String forensicReportdescription) {
+        ForensicReportdescription = forensicReportdescription;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public String getIncidentLocation() {
+        return IncidentLocation;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setIncidentLocation(String incidentLocation) {
+        IncidentLocation = incidentLocation;
     }
 
-    public String getLocation() {
-        return location;
+    public LocalDate getIncidentDate() {
+        return IncidentDate;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setIncidentDate(LocalDate incidentDate) {
+        IncidentDate = incidentDate;
     }
 
     @Override
     public String toString() {
         return "ForensicReport{" +
-                "ID='" + ID + '\'' +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", date=" + date +
-                ", location='" + location + '\'' +
+                "ForensicReportID='" + ForensicReportID + '\'' +
+                ", ForensicReportname='" + ForensicReportname + '\'' +
+                ", ForensicReportdescription='" + ForensicReportdescription + '\'' +
+                ", IncidentLocation='" + IncidentLocation + '\'' +
+                ", IncidentDate=" + IncidentDate +
                 '}';
     }
 }

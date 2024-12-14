@@ -21,7 +21,7 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class PreviousIncident
+public class PreviousIncidentController
 {
     @javafx.fxml.FXML
     private TableColumn<IncidentReport,String> IncidentLocationColumn;
@@ -38,14 +38,29 @@ public class PreviousIncident
 
     @javafx.fxml.FXML
     public void initialize() {
-        IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
-        incidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-        IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-        IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-        IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+        try {
+            IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
+            incidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+            IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
+            IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
 
-        Incidenttableview.getItems().setAll(IncidentReport.getincidentReports());
 
+            if (IncidentReport.getIncidentReports().isEmpty()) {
+                System.out.println("Adding test data...");
+                IncidentReport.getIncidentReports().add(new IncidentReport("1", "Fire in Uttara", "A major fire broke out in a residential building.", LocalDate.now(), "Uttara"));
+                IncidentReport.getIncidentReports().add(new IncidentReport("2", "Building Collapse in Bashundhara", "A commercial building partially collapsed.", LocalDate.now(), "Bashundhara"));
+                IncidentReport.getIncidentReports().add(new IncidentReport("3", "Market Fire in Gulshan", "A fire engulfed several shops in a market.", LocalDate.now().minusDays(1), "Gulshan"));
+                IncidentReport.getIncidentReports().add(new IncidentReport("4", "Road Accident in Mohakhali", "A collision between two buses caused traffic congestion.", LocalDate.now().minusDays(2), "Mohakhali"));
+                IncidentReport.getIncidentReports().add(new IncidentReport("5", "Chemical Explosion in Chattogram", "A factory explosion resulted in injuries.", LocalDate.now().minusWeeks(1), "Chattogram"));
+
+            }
+
+            Incidenttableview.getItems().setAll(IncidentReport.getIncidentReports());
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @javafx.fxml.FXML
@@ -105,7 +120,7 @@ public class PreviousIncident
     }
 
     @javafx.fxml.FXML
-    public void onbackbuttonClick(ActionEvent event) throws IOException {
+    public void OnBackButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard_search_operator.fxml"));
         Parent root = fxmlLoader.load();
 
@@ -117,7 +132,7 @@ public class PreviousIncident
     }
 
     @javafx.fxml.FXML
-    public void OnlogOutButtonClick(ActionEvent event) throws IOException {
+    public void OnLogOutButtonClick(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
         Parent root = fxmlLoader.load();
 

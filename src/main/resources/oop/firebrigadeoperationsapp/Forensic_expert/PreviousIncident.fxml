@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.forensic_DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.IncidentReportController">
    <children>
       <TableView fx:id="Incidenttableview" layoutX="14.0" layoutY="59.0" prefHeight="294.0" prefWidth="580.0">
         <columns>
@@ -19,7 +19,7 @@
         </columns>
       </TableView>
       <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" />
-      <Label layoutX="190.0" layoutY="22.0" text="Previous Incedents " textAlignment="CENTER" underline="true">
+      <Label layoutX="190.0" layoutY="22.0" text="Previous Incedents " textAlignment="CENTER">
          <font>
             <Font size="23.0" />
          </font>

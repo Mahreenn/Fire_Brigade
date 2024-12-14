@@ -7,18 +7,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.PreiousForensicReportController">
    <children>
       <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
       <Button layoutX="544.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
-      <TableView fx:id="tableview" layoutX="29.0" layoutY="80.0" prefHeight="260.0" prefWidth="562.0">
+      <TableView fx:id="ReportTableview" layoutX="19.0" layoutY="80.0" prefHeight="260.0" prefWidth="562.0">
          <columns>
-            <TableColumn fx:id="incidentIdColumn" prefWidth="75.0" text="ID" />
-            <TableColumn fx:id="IncidentNameColumn" prefWidth="136.0000228881836" text="Incident name" />
-            <TableColumn fx:id="dateColumn" prefWidth="90.66664123535156" text="date" />
-            <TableColumn fx:id="LocationColumn" prefWidth="84.66668701171875" text="location" />
-            <TableColumn fx:id="DescriptionColoum" prefWidth="175.33328247070312" text="description" />
+            <TableColumn fx:id="reportIdColumn" prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="ReportNameColumn" prefWidth="136.0000228881836" text="Incident name" />
+            <TableColumn fx:id="ReportDateColumn" prefWidth="90.66664123535156" text="date" />
+            <TableColumn fx:id="ReportLocationColumn" prefWidth="84.66668701171875" text="location" />
+            <TableColumn fx:id="ReportDescriptionColoum" prefWidth="175.33328247070312" text="description" />
          </columns>
       </TableView>
       <Button layoutX="516.0" layoutY="353.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="download" />

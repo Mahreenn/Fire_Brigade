@@ -24,36 +24,40 @@ import java.time.LocalDate;
 public class PreiousForensicReportController
 {
     @javafx.fxml.FXML
-    private TableColumn<ForensicReport,String> DescriptionColoum;
+    private TableColumn<ForensicReport,String> ReportDescriptionColoum;
     @javafx.fxml.FXML
-    private TableColumn<ForensicReport,String> IncidentNameColumn;
+    private TableColumn<ForensicReport,String> ReportNameColumn;
     @javafx.fxml.FXML
-    private TableColumn<ForensicReport,String> incidentIdColumn;
+    private TableColumn<ForensicReport,String> reportIdColumn;
     @javafx.fxml.FXML
-    private TableColumn<ForensicReport,String> LocationColumn;
+    private TableColumn<ForensicReport,String> ReportLocationColumn;
     @javafx.fxml.FXML
-    private TableView<ForensicReport> tableview;
+    private TableView<ForensicReport> ReportTableview;
     @javafx.fxml.FXML
-    private TableColumn<ForensicReport, LocalDate> dateColumn;
+    private TableColumn<ForensicReport, LocalDate> ReportDateColumn;
 
     @javafx.fxml.FXML
     public void initialize() {
         try {
 //        System.out.println("Initializing TableView...");
 
-            incidentIdColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("ID"));
-            IncidentNameColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("name"));
-            LocationColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("location"));
-            DescriptionColoum.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("description"));
-            dateColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,LocalDate>("date"));
+            reportIdColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("ForensicReportID"));
+            ReportNameColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("ForensicReportname"));
+            ReportLocationColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("IncidentLocation"));
+            ReportDescriptionColoum.setCellValueFactory(new PropertyValueFactory<ForensicReport,String>("ForensicReportdescription"));
+            ReportDateColumn.setCellValueFactory(new PropertyValueFactory<ForensicReport,LocalDate>("IncidentDate"));
 
-            if (SearchReport.getSearchreport().isEmpty()) {
+            if (ForensicReport.getForensicreport().isEmpty()) {
                 System.out.println("Adding test data...");
-                SearchReport.getSearchreport().add(new SearchReport("1", "Fire in uttora", "Major fire incident", LocalDate.now(), "Downtown"));
-                SearchReport.getSearchreport().add(new SearchReport("2", "fire in basundhara ", "Rescued trapped workers", LocalDate.now().minusDays(1), "Suburbs"));
+                ForensicReport.getForensicreport().add(new ForensicReport("1", "Chemical Analysis of Fire Debris", "The analysis confirmed traces of accelerants indicating arson.", "Uttara", LocalDate.now().minusDays(2)));
+                ForensicReport.getForensicreport().add(new ForensicReport("2", "Explosion Residue Analysis", "Residue analysis identified ammonium nitrate as the primary component.", "Bashundhara", LocalDate.now().minusWeeks(1)));
+                ForensicReport.getForensicreport().add(new ForensicReport("3", "Structural Integrity Assessment", "Forensic assessment revealed a weak foundation and faulty design.", "Mirpur", LocalDate.now().minusMonths(1)));
+                ForensicReport.getForensicreport().add(new ForensicReport("4", "DNA Analysis of Victims", "DNA analysis was performed to identify victims of the factory fire.", "Gazipur", LocalDate.now().minusDays(5)));
+                ForensicReport.getForensicreport().add(new ForensicReport("5", "Toxic Gas Identification", "Toxicology reports detected the presence of hydrogen sulfide in the vicinity.", "Chattogram", LocalDate.now()));
             }
 
-            tableview.getItems().addAll(ForensicReport.getForensicreport());
+
+            ReportTableview.getItems().addAll(ForensicReport.getForensicreport());
             System.out.println("Initialization completed.");
         } catch (Exception e) {
             e.printStackTrace();
@@ -94,12 +98,12 @@ public class PreiousForensicReportController
                     .addHeaderCell("Date");
 
             // Add data for selected rows in the TableView
-            for (ForensicReport report : tableview.getSelectionModel().getSelectedItems()) {
-                table.addCell(report.getID())
-                        .addCell(report.getName())
-                        .addCell(report.getLocation())
-                        .addCell(report.getDescription())
-                        .addCell(report.getDate().toString());
+            for (ForensicReport report : ReportTableview.getSelectionModel().getSelectedItems()) {
+                table.addCell(report.getForensicReportID())
+                        .addCell(report.getForensicReportname())
+                        .addCell(report.getIncidentLocation())
+                        .addCell(report.getForensicReportdescription())
+                        .addCell(report.getIncidentDate().toString());
             }
 
             // Add table to document
@@ -130,8 +134,9 @@ public class PreiousForensicReportController
 
     @javafx.fxml.FXML
     public void OnBackButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("oop/firebrigadeoperationsapp/Forensic_expert/dashboard_forensic_expert.fxml"));
-        Parent root = fxmlLoader.load();
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Forensic_expert/dashboard_forensic_expert.fxml"));
+        Parent root;
+        root = fxmlLoader.load();
 
         Scene scene = new Scene(root);
 

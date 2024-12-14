@@ -23,7 +23,7 @@
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+            <Button mnemonicParsing="false" onAction="#viewincidenreportButton" prefHeight="53.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="View Incident Report" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                <font>
                   <Font name="Arial Black" size="14.0" />
                </font>
@@ -31,29 +31,29 @@
                   <Insets />
                </VBox.margin>
             </Button>
+            <Button mnemonicParsing="false" prefHeight="52.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="14.0" />
+               </font>
+            </Button>
             <Button mnemonicParsing="false" onAction="#makeequipmentrequestbutton" prefHeight="57.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text=" Request Equipment" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                <font>
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" onAction="#viewcertbUTTON" prefHeight="34.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="View Certificates" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+            <Button mnemonicParsing="false" onAction="#viewcertbUTTON" prefHeight="59.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="View Certificates" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                <font>
                   <Font name="Arial Black" size="14.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="64.0" prefWidth="166.0" style="-fx-background-color: #1f4a86;" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
+            <Button mnemonicParsing="false" prefHeight="53.0" prefWidth="166.0" style="-fx-background-color: #1f4a86;" text="view schedule" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                <font>
-                  <Font name="Arial Black" size="14.0" />
+                  <Font name="Arial Black" size="16.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" textAlignment="CENTER" textFill="#b496ff" wrapText="true">
+            <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" text="update schedule" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
                <font>
                   <Font name="Arial Black" size="15.0" />
-               </font>
-            </Button>
-            <Button mnemonicParsing="false" prefHeight="36.0" prefWidth="165.0" style="-fx-background-color: #1f4a86;" textAlignment="CENTER" textFill="#96c2ff" wrapText="true">
-               <font>
-                  <Font name="Arial Black" size="14.0" />
                </font>
             </Button>
             <Button mnemonicParsing="false" onAction="#logoutButon" prefHeight="33.0" prefWidth="167.0" style="-fx-background-color: #1f4a86;" text="logout" textAlignment="CENTER" textFill="#ff96bb" wrapText="true">
