@@ -9,8 +9,8 @@ public class Employee implements Serializable {
     private String  contact,username,password;
     LocalDate dob;
 
-//    public Employee () {
-//    }
+    public Employee () {
+    }
 
     public Employee( String contact, String username, String password, LocalDate dob) {
         this.contact = contact;
