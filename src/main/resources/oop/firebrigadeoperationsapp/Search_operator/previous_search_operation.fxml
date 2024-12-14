@@ -5,19 +5,18 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
-    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back"/>
-    <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out"/>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.Search_report_Controller">
+    <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
+    <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
 
     <TableView fx:id="tableview" layoutX="19.0" layoutY="70.0" prefHeight="260.0" prefWidth="562.0">
       <columns>
-          <TableColumn fx:id="incidentIdColumn" prefWidth="75.0" text="Incident ID"/>
-          <TableColumn fx:id="IncidentNameColumn" prefWidth="136.0000228881836" text="Incident name"/>
-          <TableColumn fx:id="dateColumn" prefWidth="90.66664123535156" text="date"/>
-          <TableColumn fx:id="LocationColumn" prefWidth="84.66668701171875" text="location"/>
-          <TableColumn fx:id="DescriptionColoum" prefWidth="175.33328247070312" text="description"/>
+          <TableColumn fx:id="incidentIdColumn" prefWidth="75.0" text="Incident ID" />
+          <TableColumn fx:id="IncidentNameColumn" prefWidth="136.0000228881836" text="Incident name" />
+          <TableColumn fx:id="dateColumn" prefWidth="90.66664123535156" text="date" />
+          <TableColumn fx:id="LocationColumn" prefWidth="84.66668701171875" text="location" />
+          <TableColumn fx:id="DescriptionColoum" prefWidth="175.33328247070312" text="description" />
       </columns>
     </TableView>
-    <Button layoutX="521.0" layoutY="366.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="download"/>
+    <Button layoutX="521.0" layoutY="366.0" mnemonicParsing="false" onAction="#OnDownloadButtonClick" text="download" />
 </AnchorPane>

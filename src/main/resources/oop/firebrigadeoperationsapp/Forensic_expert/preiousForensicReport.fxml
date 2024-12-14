@@ -11,7 +11,7 @@
    <children>
       <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
       <Button layoutX="544.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
-      <TableView fx:id="ReportTableview" layoutX="29.0" layoutY="80.0" prefHeight="260.0" prefWidth="562.0">
+      <TableView fx:id="ReportTableview" layoutX="19.0" layoutY="80.0" prefHeight="260.0" prefWidth="562.0">
          <columns>
             <TableColumn fx:id="reportIdColumn" prefWidth="75.0" text="ID" />
             <TableColumn fx:id="ReportNameColumn" prefWidth="136.0000228881836" text="Incident name" />

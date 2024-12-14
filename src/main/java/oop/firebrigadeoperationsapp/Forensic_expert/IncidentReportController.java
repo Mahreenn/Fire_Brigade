@@ -1,4 +1,4 @@
-package oop.firebrigadeoperationsapp.Search_operator;
+package oop.firebrigadeoperationsapp.Forensic_expert;
 
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
@@ -6,6 +6,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.property.UnitValue;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -15,35 +16,34 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import oop.firebrigadeoperationsapp.Forensic_expert.IncidentReport;
 
 import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 
-public class PreviousIncidentController
-{
-    @javafx.fxml.FXML
+public class IncidentReportController {
+
+    @FXML
     private TableColumn<IncidentReport,String> IncidentLocationColumn;
-    @javafx.fxml.FXML
+    @FXML
     private TableColumn<IncidentReport,String> IncidentDescriptionColumn;
-    @javafx.fxml.FXML
+    @FXML
     private TableView<IncidentReport> Incidenttableview;
-    @javafx.fxml.FXML
+    @FXML
     private TableColumn<IncidentReport,String> IncidentIdColumn;
-    @javafx.fxml.FXML
+    @FXML
     private TableColumn<IncidentReport, LocalDate> IncidentDateColumn;
-    @javafx.fxml.FXML
+    @FXML
     private TableColumn<IncidentReport,String> incidentNameColumn;
 
-    @javafx.fxml.FXML
+    @FXML
     public void initialize() {
         try {
-            IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<>("ID"));
-            incidentNameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
-            IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
-            IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<>("description"));
-            IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<>("date"));
+            IncidentIdColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("ID"));
+            incidentNameColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("name"));
+            IncidentLocationColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("location"));
+            IncidentDescriptionColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,String>("description"));
+            IncidentDateColumn.setCellValueFactory(new PropertyValueFactory<IncidentReport,LocalDate>("date"));
 
 
             if (IncidentReport.getIncidentReports().isEmpty()) {
@@ -51,27 +51,46 @@ public class PreviousIncidentController
                 IncidentReport.getIncidentReports().add(new IncidentReport("1", "Fire in Uttara", "A major fire broke out in a residential building.", LocalDate.now(), "Uttara"));
                 IncidentReport.getIncidentReports().add(new IncidentReport("2", "Building Collapse in Bashundhara", "A commercial building partially collapsed.", LocalDate.now(), "Bashundhara"));
                 IncidentReport.getIncidentReports().add(new IncidentReport("3", "Market Fire in Gulshan", "A fire engulfed several shops in a market.", LocalDate.now().minusDays(1), "Gulshan"));
-                IncidentReport.getIncidentReports().add(new IncidentReport("4", "Road Accident in Mohakhali", "A collision between two buses caused traffic congestion.", LocalDate.now().minusDays(2), "Mohakhali"));
-                IncidentReport.getIncidentReports().add(new IncidentReport("5", "Chemical Explosion in Chattogram", "A factory explosion resulted in injuries.", LocalDate.now().minusWeeks(1), "Chattogram"));
-
             }
 
-            Incidenttableview.getItems().setAll(IncidentReport.getIncidentReports());
 
-        }catch (Exception e) {
+            // Adding data to the TableView
+            Incidenttableview.getItems().addAll(IncidentReport.getIncidentReports());
+            System.out.println("Initialization completed.");
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+
+    @FXML
+    public void onBackButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("dashboard_forensic_expert.fxml"));
+        Parent root = FxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
     @javafx.fxml.FXML
-    public void OnDownloadButtonClick(ActionEvent actionEvent) {
+    public void LogOutButtonClick(ActionEvent event) throws IOException {
+        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
+        Parent root = FxmlLoader.load();
+        Scene scene = new Scene(root);
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void OnDownloadButtonClick(ActionEvent Event) {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("PDF Documents", "*.pdf")
         );
 
         // Show save dialog
-        Stage stage = (Stage) ((Node) actionEvent.getSource()).getScene().getWindow();
+        Stage stage = (Stage) ((Node) Event.getSource()).getScene().getWindow();
         File selectedFile = fileChooser.showSaveDialog(stage);
 
         if (selectedFile == null) {
@@ -117,29 +136,5 @@ public class PreviousIncidentController
             e.printStackTrace();
             System.err.println("Error while creating PDF: " + e.getMessage());
         }
-    }
-
-    @javafx.fxml.FXML
-    public void OnBackButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("dashboard_search_operator.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        return;
-    }
-
-    @javafx.fxml.FXML
-    public void OnLogOutButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
-        Parent root = fxmlLoader.load();
-
-        Scene scene = new Scene(root);
-
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        return;
     }
 }

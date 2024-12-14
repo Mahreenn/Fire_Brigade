@@ -84,9 +84,9 @@ public class LoginPageController {
 
         // Determine the correct dashboard file
         if (role.equals("Dispatcher")) {
-            fxmlFile = "Mahreen2311459/Dispatcher/newDash.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Mahreen2311459/Dispatcher/newDash.fxml";
         } else if (role.equals("Firefighter")) {
-            fxmlFile = "Mahreen2311459/Firefighter/FirefighterDashboard.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Mahreen2311459/Firefighter/FirefighterDashboard.fxml";
         } else if (role.equals("EMT") || role.equals("Training officer")) {
             fxmlFile = "dashboard.fxml";
         } else if (role.equals("Technician")) {
