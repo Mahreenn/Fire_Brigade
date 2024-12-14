@@ -5,13 +5,13 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
    <children>
       <Label layoutX="56.0" layoutY="34.0" prefHeight="33.0" prefWidth="413.0" text="Welcome to search operator deshboard">
          <font>
             <Font size="21.0" />
          </font></Label>
-      <Button layoutX="527.0" layoutY="21.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
+      <Button layoutX="527.0" layoutY="21.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" textFill="#e21717" />
       <Button layoutX="86.0" layoutY="145.0" mnemonicParsing="false" onAction="#OnProfileButtonClick" prefHeight="40.0" prefWidth="157.0" text="profile" />
       <Button layoutX="289.0" layoutY="145.0" mnemonicParsing="false" onAction="#OnEmergencyButtonClick" prefHeight="40.0" prefWidth="157.0" text="emergency" />
       <Button layoutX="86.0" layoutY="222.0" mnemonicParsing="false" onAction="#OnPreviousSearchOperationButtonClick" prefHeight="40.0" prefWidth="157.0" text="previous search operation " />

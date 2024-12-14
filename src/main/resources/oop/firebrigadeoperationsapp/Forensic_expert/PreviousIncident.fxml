@@ -18,7 +18,7 @@
             <TableColumn fx:id="IncidentDateColumn" prefWidth="84.66668701171875" text="Date" />
         </columns>
       </TableView>
-      <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" />
+      <Button layoutX="534.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" textFill="#d20c0c" />
       <Label layoutX="190.0" layoutY="22.0" text="Previous Incedents " textAlignment="CENTER">
          <font>
             <Font size="23.0" />

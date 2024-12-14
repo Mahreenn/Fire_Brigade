@@ -7,10 +7,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.PreiousForensicReportController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.PreiousForensicReportController">
    <children>
       <Button layoutX="24.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
-      <Button layoutX="544.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
+      <Button layoutX="530.0" layoutY="24.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" textFill="#d20d0d" />
       <TableView fx:id="ReportTableview" layoutX="19.0" layoutY="80.0" prefHeight="260.0" prefWidth="562.0">
          <columns>
             <TableColumn fx:id="reportIdColumn" prefWidth="75.0" text="ID" />

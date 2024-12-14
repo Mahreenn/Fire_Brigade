@@ -121,9 +121,17 @@ public class SignUpPageController {
             }
 
             messageLabel.setText("Sign up successful!");
+            SignUpNameField.clear();
+            SetPassField.clear();
+            ConfirmPassField.clear();
+            dobDP.setValue(null);
+            ContactField.clear();
+            UserBox.getSelectionModel().clearSelection();
 
+        } catch (IOException e) {
+            messageLabel.setText("File error: Unable to save employee data.");
         } catch (Exception e) {
-            messageLabel.setText("An error occurred during sign-up. Please try again.");
+            messageLabel.setText("Unexpected error occurred: " + e.getMessage());
         }
     }
 

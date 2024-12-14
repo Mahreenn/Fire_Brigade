@@ -33,7 +33,7 @@ public class search_operator_DashboardController {
     @FXML
     public void OnProfileButtonClick(ActionEvent event) throws IOException {
         //        scence switch to Profile.fxml
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Profile.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Search_operator/profile_Search.fxml"));
         Parent root = fxmlLoader.load();
 
         Scene scene = new Scene(root);

@@ -50,7 +50,7 @@ public class forensic_DashboardController {
 
     @FXML
     public void OnProfileButtonClick(ActionEvent event) throws IOException {
-        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Profile.fxml"));
+        FXMLLoader FxmlLoader = new FXMLLoader(getClass().getResource("/oop/firebrigadeoperationsapp/Forensic_expert/profile_forensic.fxml"));
         Parent root = FxmlLoader.load();
         Scene scene = new Scene(root);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

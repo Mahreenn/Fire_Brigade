@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.SignUpPageController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.SignUpPageController">
    <children>
       <GridPane layoutX="34.0" layoutY="32.0" prefHeight="331.0" prefWidth="500.0" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="66.0" AnchorPane.topAnchor="32.0">
         <columnConstraints>
@@ -39,7 +39,7 @@
             <PasswordField fx:id="ConfirmPassField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
             <Button mnemonicParsing="false" onAction="#OnSignUpButtonClick" prefHeight="34.0" prefWidth="128.0" text="Sign Up" GridPane.rowIndex="6" />
             <Button mnemonicParsing="false" onAction="#BackToLoginPageButton" prefHeight="25.0" prefWidth="230.0" text="Already Have an account? Log in here." GridPane.rowIndex="7" />
-            <Label fx:id="massageLabel" prefHeight="29.0" prefWidth="210.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+            <Label fx:id="messageLabel" prefHeight="29.0" prefWidth="210.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
             <Label text="DoB" GridPane.rowIndex="3" />
             <DatePicker fx:id="dobDP" GridPane.columnIndex="1" GridPane.rowIndex="3" />
             <Label text="Contact" GridPane.rowIndex="1" />
