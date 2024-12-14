@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Mahreen2311459.Dispatcher.UpdatestatussceneController">
    <children>
-      <TextField fx:id="alrtidss" layoutX="206.0" layoutY="126.0" />
-      <TextField fx:id="statusidss" layoutX="206.0" layoutY="182.0" />
-      <Button layoutX="248.0" layoutY="255.0" mnemonicParsing="false" onAction="#statusupdatessbutton" text="update" />
+      <TextField fx:id="alertidtextfield" layoutX="206.0" layoutY="126.0" />
+      <TextField fx:id="statustextfield" layoutX="206.0" layoutY="182.0" />
+      <Button layoutX="248.0" layoutY="255.0" mnemonicParsing="false" onAction="#statusupdatebutton" text="update" />
+      <Label layoutX="160.0" layoutY="126.0" prefHeight="25.0" prefWidth="45.0" text="alert:" />
+      <Label layoutX="160.0" layoutY="187.0" prefHeight="25.0" prefWidth="45.0" text="status:" />
+      <Label fx:id="message" layoutX="432.0" layoutY="280.0" prefHeight="101.0" prefWidth="149.0" />
+      <Button layoutX="14.0" layoutY="23.0" mnemonicParsing="false" onAction="#closebutton" text="close" textFill="#241d1d" />
    </children>
 </AnchorPane>

@@ -29,7 +29,6 @@ import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.List;
 
 import static oop.firebrigadeoperationsapp.Mahreen2311459.Location.fromStringToLocation;
 
@@ -124,6 +123,16 @@ public class newDashController {
         @FXML
         private TableColumn<Alert, Integer> alrtTC;
 
+        //workflow5
+        @FXML
+        private TableColumn<Inventory, String> equipmenttc;
+        @FXML
+        private TableView<Inventory> inventorytableview;
+
+        @FXML
+        private TableColumn<Inventory, Integer> amounttc;
+
+
         //workflow 6
         @FXML
         private Label msglblw6;
@@ -152,22 +161,12 @@ public class newDashController {
 
 
 
-
-
-
         @FXML
         private Label msglblw4;
 
         @FXML
         private Label msglblw5;
 
-
-
-        @FXML
-        private ComboBox<?> sendamountcombobox;
-
-        @FXML
-        private ComboBox<?> sendequipcombobox;
 
 
 
@@ -250,9 +249,8 @@ public class newDashController {
         void createfilebutton(ActionEvent event)throws IOException {
                 ObjectOutputStream oos = null;
                 if (! alertTableview.getItems().isEmpty()) {
-
                         try {
-                                oos = new AppendableObjectOutputStream(new FileOutputStream("alerts.bin", true));
+                                oos = new ObjectOutputStream(new FileOutputStream("alerts.bin"));
                                 for(Alert a:alertTableview.getItems()){
                                         oos.writeObject(a);
                                 }
@@ -264,7 +262,7 @@ public class newDashController {
                         }
                         finally {
                                 if (oos!=null){
-                                        oos.close();
+                                    oos.close();
                                 }
                         }
                 }else {
@@ -297,14 +295,12 @@ public class newDashController {
             } else {
                 msglblw2.setText("Please select a team and alert ID.");
             }
-
             if (allocationtableview.getItems().isEmpty()) {
-                msglblw2.setText(" ");
                 msglblw2.setText("no allocations made");
             } else {
                 ObjectOutputStream oos = null;
                 try {
-                    oos = new AppendableObjectOutputStream(new FileOutputStream("Allocations.bin"));
+                    oos = new ObjectOutputStream(new FileOutputStream("Allocations.bin"));
                     for (Allocation a : allocationtableview.getItems()) {
                         oos.writeObject(a);
                     }
@@ -339,15 +335,17 @@ public class newDashController {
         try{ ois = new ObjectInputStream(new FileInputStream("alerts.bin"));
             statusTableview.getItems().clear();
             while(true){
-                Alert a = (Alert)ois.readObject();
-                alertList.add(a);
+                try {
+                    Alert a = (Alert) ois.readObject();
+                    statusTableview.getItems().add(a);
+                }
+                catch (EOFException e){
+                    msglblw3.setText("success");
+                    break;
+                }
             }
         }
-        catch(EOFException e){
-            statusTableview.getItems().clear();
-            statusTableview.getItems().addAll(alertList);
-            msglblw3.setText("success");
-        }
+       // catch(EOFException e){statusTableview.getItems().addAll(alertList);}
         catch(ClassNotFoundException e){
             msglblw3.setText("Invalid file format!");
         }
@@ -409,6 +407,10 @@ public class newDashController {
         manualPANE.setVisible(false);
 
     }
+    @FXML
+    public void displayavailableinventory(ActionEvent event) {
+
+    }
 
     //workflow6
     @FXML
@@ -450,8 +452,6 @@ public class newDashController {
 
     }
 
-
-
     //workflow7
         @FXML
         public void generateincidentreportbutton(ActionEvent event) {
@@ -489,7 +489,7 @@ public class newDashController {
         String destFilename = desttf.getText();
 
         if (srcFilename.isEmpty() || destFilename.isEmpty()) {
-            msglblw7.setText("Source or Destination file path is empty!");
+            msglblw7.setText("Source or Destination path is empty!");
             return;
         }
 
@@ -522,11 +522,6 @@ public class newDashController {
                 }
         }
     }
-
-
-
-
-
 
     //workflow8
         @FXML
@@ -565,7 +560,7 @@ public class newDashController {
 
         }
         @FXML
-        void saveedittedmanualbuttom(ActionEvent event) throws IOException {
+        void saveedittedmanualbutton(ActionEvent event) throws IOException {
             msglblw8.setText("");
             try (BufferedWriter bw = new BufferedWriter(new FileWriter("manual.txt", true))) {
                 String textappended = manualtextarea.getText();
@@ -582,17 +577,12 @@ public class newDashController {
 
         @FXML
         void pdfmanualbutton(ActionEvent event) throws FileNotFoundException {
-            // Clear any previous messages
-            msglblw8.setText("");
-
-            // FileChooser for selecting the .txt file
+            msglblw8.setText("pdf button clicked");
             FileChooser fileChooser = new FileChooser();
             fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("files", "*.txt"));
 
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
             File selectedFile = fileChooser.showOpenDialog(stage);
-
             if (selectedFile == null) {
                 return;
             }
@@ -604,33 +594,24 @@ public class newDashController {
             }
 
             try {
-                // Create the PDF writer and document
                 PdfWriter writer = new PdfWriter(saveFile);
                 PdfDocument pdf = new PdfDocument(writer);
                 Document document = new Document(pdf);
 
-                // Read the .txt file and add each line to the PDF
                 BufferedReader reader = new BufferedReader(new FileReader(selectedFile));
                 String line;
 
-                // Read each line from the .txt file and add it as a paragraph to the PDF
                 while ((line = reader.readLine()) != null) {
-                    document.add(new Paragraph(line));  // Add each line of text as a paragraph
+                    document.add(new Paragraph(line));
                 }
-
-                reader.close();  // Close the reader after reading the file
-                document.close();  // Close the document to finish writing the PDF
-
-                // Set success message with the path of the saved PDF
+                reader.close();
+                document.close();
                 msglblw8.setText("PDF created successfully at " + saveFile.getAbsolutePath());
 
             } catch (IOException e) {
-                // In case of an error, show the error message
                 msglblw8.setText("Error while creating PDF: " + e.getMessage());
             }
         }
-
-
 
         @FXML
         void logoutButon(ActionEvent event) throws IOException {
@@ -645,7 +626,7 @@ public class newDashController {
     }
 
     public void loaddatabutton(ActionEvent event) {
-        // Your code to handle the event
+
     }
 
 
