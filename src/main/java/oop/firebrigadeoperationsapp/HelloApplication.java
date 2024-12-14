@@ -11,7 +11,7 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) {
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/oop/firebrigadeoperationsapp/BattalionChief/BattalionChiefDashbard.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/oop/firebrigadeoperationsapp/LoginPage.fxml"));
             Scene scene = new Scene(fxmlLoader.load());
             stage.setTitle("Log In Page");
             stage.setScene(scene);

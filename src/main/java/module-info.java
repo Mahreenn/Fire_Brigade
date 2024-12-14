@@ -16,6 +16,9 @@ module oop.firebrigadeoperationsapp {
     opens oop.firebrigadeoperationsapp.Mahreen2311459.Firefighter to javafx.fxml;
     exports oop.firebrigadeoperationsapp.BattalionChief;
     opens oop.firebrigadeoperationsapp.BattalionChief to javafx.fxml;
+
     exports oop.firebrigadeoperationsapp.Search_operator;
     opens oop.firebrigadeoperationsapp.Search_operator to javafx.fxml;
+    opens oop.firebrigadeoperationsapp.Forensic_expert to javafx.fxml;
+    exports oop.firebrigadeoperationsapp.Forensic_expert;
 }
