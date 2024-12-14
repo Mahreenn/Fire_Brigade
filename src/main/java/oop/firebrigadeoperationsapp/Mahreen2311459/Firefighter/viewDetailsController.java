@@ -17,8 +17,11 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class viewDetailsController {
+
+    ArrayList<Firefighter> FirefighterTeam = new ArrayList<>();
     @FXML
     private Label messagelabel;
 
@@ -48,7 +51,7 @@ public class viewDetailsController {
                 .addHeaderCell("Contact")
                 .addHeaderCell("Age");
 
-        for (Firefighter u: firefighterteam.getFirefighters) {
+        for (Firefighter u: FirefighterTeam ) {
             table.addCell(u.getUsername())
                     .addCell(u.getContact())
                     .addCell("" + u.getAge());
