@@ -36,6 +36,7 @@ public class Search_report_submit_controller {
 
     @FXML
     public void OnReportSubmitButtonClick(ActionEvent event) {
+        System.out.println("Submit button clicked");
         try {
 
             if (IncidentNoField.getText().isEmpty() || IncidentNamefield.getText().isEmpty() ||

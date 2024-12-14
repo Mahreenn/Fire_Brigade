@@ -39,6 +39,7 @@ public class Forensic_report_submit_controller {
     //for submitting report in Forensic report submit FXML
     @FXML
     public void OnReportSubmitButtonClick(ActionEvent event) {
+        System.out.println("Submit button clicked");
         try {
 
             if (IncidentNoField.getText().isEmpty() || IncidentNamefield.getText().isEmpty() ||
@@ -61,7 +62,7 @@ public class Forensic_report_submit_controller {
             ForensicReport.getForensicreport().add(newReport);
 
 
-            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("ForensicReport.bin"))) {
+            try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("/oop/firebrigadeoperationsapp/Forensic_expert/ForensicReport.bin"))) {
                 oos.writeObject(ForensicReport.getForensicreport());
             }
 
