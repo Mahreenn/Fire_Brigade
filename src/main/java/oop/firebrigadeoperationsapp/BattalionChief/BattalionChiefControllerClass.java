@@ -150,7 +150,17 @@ public class BattalionChiefControllerClass {
 
     @FXML
     void OnprogresssButton(ActionEvent event) {
+        StringBuilder content = new StringBuilder();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("progress.bin"))) {
+            Object obj = ois.readObject();
+            content.append(obj.toString());
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
 
+        textView.setText(content.toString());
+        textView.setVisible(true);
+        textViewOkButton.setVisible(true);
     }
 
     @FXML
@@ -237,12 +247,10 @@ public class BattalionChiefControllerClass {
         superviseOkButton.setVisible(false);
     }
 
-
     @FXML
     void onSupplyButton(ActionEvent event) {
 
     }
-
 
     @FXML
     void onTransferButton(ActionEvent event) {
