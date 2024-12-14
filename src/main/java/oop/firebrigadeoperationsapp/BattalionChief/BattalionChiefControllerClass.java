@@ -150,7 +150,7 @@ public class BattalionChiefControllerClass {
 
     @FXML
     void OnprogresssButton(ActionEvent event) {
-        // Implement the load progress logic here
+
     }
 
     @FXML
@@ -240,7 +240,7 @@ public class BattalionChiefControllerClass {
 
     @FXML
     void onSupplyButton(ActionEvent event) {
-        // Implement the supply logic here
+
     }
 
 
