@@ -4,11 +4,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Search_operator.search_operator_DashboardController">
    <children>
       <Label layoutX="243.0" layoutY="27.0" text="emergency" />
-      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" text="back" />
-      <Button layoutX="528.0" layoutY="14.0" mnemonicParsing="false" text="log out" />
+      <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnBackButtonClick" text="back" />
+      <Button layoutX="528.0" layoutY="14.0" mnemonicParsing="false" onAction="#OnLogOutButtonClick" text="log out" />
    </children>
 </AnchorPane>

@@ -3,14 +3,15 @@ package oop.firebrigadeoperationsapp.Forensic_expert;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ForensicReport {
-    String ForensicReportID, ForensicReportname, ForensicReportdescription;
-    String IncidentLocation;
-    LocalDate IncidentDate;
+public class ForensicReport implements Serializable {
+    private String ForensicReportID, ForensicReportname, ForensicReportdescription;
+    private String IncidentLocation;
+    private LocalDate IncidentDate;
 
 
     public ForensicReport(String forensicReportID, String forensicReportname, String forensicReportdescription, String incidentLocation, LocalDate incidentDate) {
@@ -24,7 +25,7 @@ public class ForensicReport {
     private static final List<ForensicReport> forensicReports = new ArrayList<>();
 
     static {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("ForensicReport.bin"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("/oop/firebrigadeoperationsapp/Forensic_expert/ForensicReport.bin"))) {
             while (true) {
                 ForensicReport R = (ForensicReport) ois.readObject();
                 forensicReports.add(R);

@@ -7,11 +7,12 @@ import oop.firebrigadeoperationsapp.Forensic_expert.IncidentReport;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SearchReport  {
+public class SearchReport implements Serializable {
     private String ID, name, description;
     private LocalDate date;
     private String location;

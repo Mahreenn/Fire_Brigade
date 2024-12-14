@@ -84,19 +84,19 @@ public class LoginPageController {
 
         // Determine the correct dashboard file
         if (role.equals("Dispatcher")) {
-            fxmlFile = "Mahreen2311459/Dispatcher/newDash.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Mahreen2311459/Dispatcher/newDash.fxml";
         } else if (role.equals("Firefighter")) {
-            fxmlFile = "Mahreen2311459/Firefighter/FirefighterDashboard.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Mahreen2311459/Firefighter/FirefighterDashboard.fxml";
         } else if (role.equals("EMT") || role.equals("Training officer")) {
             fxmlFile = "dashboard.fxml";
         } else if (role.equals("Technician")) {
-            fxmlFile = "Technician/TechnicianDashBoard.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Technician/TechnicianDashBoard.fxml";
         } else if (role.equals("Battalion Chief (Captain)")) {
-            fxmlFile = "BattalionChief/BattalionChiefDashbard.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/BattalionChief/BattalionChiefDashbard.fxml";
         } else if (role.equals("Forensic Expert")) {
-            fxmlFile = "forensic_expert/dashboard_forensic_expert.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Forensic_expert/dashboard_forensic_expert.fxml";
         } else if (role.equals("Search operator")) {
-            fxmlFile = "Search_operator/dashboard_search_operator.fxml";
+            fxmlFile = "/oop/firebrigadeoperationsapp/Search_operator/dashboard_search_operator.fxml";
             System.out.println(getClass().getResource(fxmlFile));
         }
 

@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.forensic_DashboardController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #3a7aad;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oop.firebrigadeoperationsapp.Forensic_expert.Forensic_report_submit_controller">
    <children>
       <Button layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#onBackButtonClick" text="back" AnchorPane.leftAnchor="14.0" AnchorPane.topAnchor="14.0" />
-      <Button layoutX="526.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" AnchorPane.rightAnchor="14.666666666666629" AnchorPane.topAnchor="14.0" />
-      <Label layoutX="190.0" layoutY="11.0" text="Forensic report submit" underline="true">
+      <Button layoutX="526.0" layoutY="14.0" mnemonicParsing="false" onAction="#LogOutButtonClick" text="Log Out" textFill="#cc0909" AnchorPane.rightAnchor="14.666666666666629" AnchorPane.topAnchor="14.0" />
+      <Label layoutX="190.0" layoutY="11.0" text="Forensic report submit">
          <font>
             <Font size="22.0" />
          </font>
